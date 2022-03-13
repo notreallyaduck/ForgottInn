@@ -1,5 +1,5 @@
 //
-// Created by Sudesh Arunachalam on 12/3/2022.
+// Created by Sudesh Arunachaqlam on 12/3/2022.
 //
 #include <string>
 
@@ -25,7 +25,7 @@ public:
     }
 
     void setHealth(int Health) {
-        health = Health;
+        health = health + Health;
     }
 
     void setWeapon(int Weapon) {
@@ -52,7 +52,7 @@ public:
         return isAlive;
     }
 
-    int getPosition(){
+    int getPosition() {
         return position;
     }
 };
