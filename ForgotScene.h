@@ -96,7 +96,8 @@ public:
                 break;
             case 15:
                 cout << "\n\nFloor 3 hallway";
-                cout << "\nA hallway, This hallway does not have any windows. It is almost pitch black, only illuminated by a series of small lights. You cannot make out the colour of the carpet here. Doors line the hallway, numbered from 301 - ?. Most of them are locked, indicated by a red light on the door handles. 3 of them are unlocked.";
+                cout
+                        << "\nA hallway, This hallway does not have any windows. It is almost pitch black, only illuminated by a series of small lights. You cannot make out the colour of the carpet here. Doors line the hallway, numbered from 301 - ?. Most of them are locked, indicated by a red light on the door handles. 3 of them are unlocked.";
                 break;
             case 16:
                 cout << "\n\nRoom 304";
@@ -247,7 +248,28 @@ public:
                 } else {
                     cout << "Select a valid option";
                 }
-                    case 11:
+                break;
+            case 9:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 6;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 10:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 6;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 11:
                 cout << "\n[1] Go to room 204"
                         "\n[2] Go to room 209"
                         "\n[3] Go to room 218\n> ";
@@ -258,6 +280,36 @@ public:
                     newPosition = 13;
                 } else if (chosenAction == 3) {
                     newPosition = 14;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 12:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 11;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 13:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 11;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 14:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 11;
                 } else {
                     cout << "Select a valid option";
                 }
@@ -273,6 +325,36 @@ public:
                     newPosition = 17;
                 } else if (chosenAction == 3) {
                     newPosition = 18;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 16:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 15;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 17:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 15;
+                } else {
+                    cout << "Select a valid option";
+                }
+                break;
+            case 18:
+                cout << "WIP";
+                cout << "\n[1] Go back to hallway\n> ";
+                cin >> chosenAction;
+                if (chosenAction == 1) {
+                    newPosition = 15;
                 } else {
                     cout << "Select a valid option";
                 }

@@ -9,7 +9,6 @@ using namespace std;
 int main() {
     string userName;
     string userInput;
-    int playerHealth;
     //welcome message
     cout << "\nWelcome to the ForgottInn"
 
@@ -28,18 +27,15 @@ int main() {
         player1.setPosition(0);
     }
 
-    while (true) {
-        if (player1.getHealth() > 0) { //when player is still alive
-            playerScene1.getLook(player1.getPosition());
-            playerScene1.getActions(player1.getPosition());
-            player1.setPosition(playerScene1.getNewPosition());
-            player1.setHealth(playerScene1.getNewHealth());
-        } else if (playerHealth == 0) { //Death message
-            cout << "\nYou have died. Restart the game to play again.";
-            goto exit;
-        }
-
+    while (player1.getHealth() > 0) {
+        playerScene1.getLook(player1.getPosition());
+        playerScene1.getActions(player1.getPosition());
+        player1.setPosition(playerScene1.getNewPosition());
+        player1.setHealth(playerScene1.getNewHealth());
     }
+
+    cout << "\nYou have died. Restart the game to play again.";
+    goto exit;
 
     exit:;
 
