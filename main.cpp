@@ -30,8 +30,9 @@ int main() {
     while (player1.getHealth() > 0) {
         playerScene1.getLook(player1.getPosition());
         playerScene1.getActions(player1.getPosition());
-        player1.setPosition(playerScene1.getNewPosition());
+        player1.setPosition(playerScene1.newPosition);
         player1.setHealth(playerScene1.getNewHealth());
+        cout << "\nNEW POSITION: " << playerScene1.getNewPosition();
     }
 
     cout << "\nYou have died. Restart the game to play again.";

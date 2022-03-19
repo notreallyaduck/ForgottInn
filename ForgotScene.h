@@ -15,7 +15,7 @@ public:
     int action;
     int currentScene;
     int newPosition;
-    int chosenAction;
+    string chosenAction;
     int newHealth;
 
 
@@ -26,8 +26,8 @@ public:
     // getters
 
     //scene descriptors
-    int getLook(int currentScene) {
-        switch (currentScene) {
+    void getLook(int scene) {
+        switch (scene) {
             case 0:
                 cout << "\n\nField";
                 cout
@@ -112,29 +112,33 @@ public:
         }
     }
 
+
+
     //scene actions
-    int getActions(int currentScene) {
+    int getActions(int scene) {
         cout << "\nAvailable Actions:";
-        switch (currentScene) {
+        switch (scene) {
             case 0:
                 cout << "\n[1] Enter Hotel\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 1;
+                } else if (cin.fail()){
+                    cout << "NOT AN INTEGER";
+                    chosenAction = "0";
+                    break;
                 } else {
-                    cout << "\nSelect a valid option\n> ";
+                    cout << "Enter a valid option";
                 }
                 break;
             case 1:
                 cout << "\n[1] Enter the hotel"
                         "\n[2] Go back outside\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 2;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     newPosition = 0;
-                } else {
-                    cout << "\nSelect a valid option\n> ";
                 }
                 break;
             case 2:
@@ -142,14 +146,12 @@ public:
                         "\n[2] Go to the reception"
                         "\n[3] Go to the cafe\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 1;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     newPosition = 3;
-                } else if (chosenAction == 3) {
+                } else if (chosenAction == "3") {
                     newPosition = 4;
-                } else {
-                    cout << "\nSelect a valid option\n> ";
                 }
                 break;
             case 3:
@@ -158,18 +160,16 @@ public:
                         "\n[3] Find empty rooms"
                         "\n[4] Enter the elevator\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 2;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     cout
                             << "\nYou take some money from this cash register and put it in your pockets, it might come in handy.\n";
-                } else if (chosenAction == 3) {
+                } else if (chosenAction == "3") {
                     cout
                             << "\nYou look at the computer screen and see 9 blinking lights, it looks like rooms 103, 106 and 108 are free on level one, rooms 204, 209 and 218 are free on level two and rooms 304, 312 and 315 on level three.\n";
-                } else if (chosenAction == 4) {
+                } else if (chosenAction == "4") {
                     newPosition = 5;
-                } else {
-                    cout << "\nSelect a valid option\n> ";
                 }
                 break;
             case 4:
@@ -177,18 +177,16 @@ public:
                         "\n[2] Eat some food"
                         "\n[3] Sleep\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 2;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     cout
                             << "\nYou take some food and put it in your mouth. You chew and swallow. It's food, what else do you expect?\n";
-                } else if (chosenAction == 3) {
+                } else if (chosenAction == "3") {
                     cout
                             << "\nYou decide to take a bit of a nap, unfortunately, you slept a bit too long. Something comes and eats you, you don't know what, because you were sleeping.\n";
                     newHealth = -10;
                     cout << newHealth << " health";
-                } else {
-                    cout << "\nSelect a valid option\n> ";
                 }
                 break;
             case 5:
@@ -197,19 +195,17 @@ public:
                         "\n[3] Go to level two"
                         "\n[4] Go to level three\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 2;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     newPosition = 6;
-                } else if (chosenAction == 3) {
+                } else if (chosenAction == "3") {
                     newPosition = 11;
                     cout << newHealth << " health";
-                } else if (chosenAction == 4) {
+                } else if (chosenAction == "4") {
                     newPosition = 15;
-                } else {
-                    cout << "Select a valid option";
                 }
-                if (chosenAction == 2 || chosenAction == 3 || chosenAction == 4) {
+                if (chosenAction == "2" || chosenAction == "3" || chosenAction == "4") {
                     cout
                             << "\nYou step out of the elevator and into a hallway, the elevator makes a soft ding behind you as the doors close and it whirs back down to the ground floor. There are no buttons next to the elevator doors. You'll have to find another way back down.";
                 }
@@ -220,53 +216,48 @@ public:
                         "\n[3] Go to room 106"
                         "\n[4] Go to room 108\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 7;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     newPosition = 8;
-                } else if (chosenAction == 3) {
+                } else if (chosenAction == "3") {
                     newPosition = 9;
-                } else if (chosenAction == 4) {
+                } else if (chosenAction == "4") {
                     newPosition = 10;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 7:
                 cout << "\n[1] Go back to the hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 6;
                 }
                 break;
             case 8:
                 cout << "WIP";
-                cout << "\n[1] Go back to hallway\n> ";
+                cout << "\n[1] Go back to hallway";
+                cout << "\n[2] Try to find the light switch";
+                cout << "\n[3] Wait for your eyes to adjust to the light";
+                cout << "\n[4] Cheese";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 6;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 9:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 6;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 10:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 6;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 11:
@@ -274,44 +265,36 @@ public:
                         "\n[2] Go to room 209"
                         "\n[3] Go to room 218\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 12;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     newPosition = 13;
-                } else if (chosenAction == 3) {
+                } else if (chosenAction == "3") {
                     newPosition = 14;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 12:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 11;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 13:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 11;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 14:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 11;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 15:
@@ -319,44 +302,36 @@ public:
                         "\n[2] Go to room 312"
                         "\n[3] Go to room 315\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 16;
-                } else if (chosenAction == 2) {
+                } else if (chosenAction == "2") {
                     newPosition = 17;
-                } else if (chosenAction == 3) {
+                } else if (chosenAction == "3") {
                     newPosition = 18;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 16:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 15;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 17:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 15;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             case 18:
                 cout << "WIP";
                 cout << "\n[1] Go back to hallway\n> ";
                 cin >> chosenAction;
-                if (chosenAction == 1) {
+                if (chosenAction == "1") {
                     newPosition = 15;
-                } else {
-                    cout << "Select a valid option";
                 }
                 break;
             default:
@@ -370,13 +345,11 @@ public:
         return newPosition;
     }
 
-    int getChosenAction() {
-        return chosenAction;
-    }
-
     int getNewHealth() {
         return newHealth;
     }
+
+
 
 
 };
