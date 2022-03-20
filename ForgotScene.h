@@ -16,10 +16,10 @@ public:
     int currentScene;
     int newPosition = 0;
     string chosenAction;
-    int newHealth = 0;
     int failedInputs = 0;
     int newBattle = 0;
     bool is103LightOn = false;
+    bool killedPlayer = false;
 
     ForgotScene(int Scene) {
         currentScene = Scene;
@@ -34,19 +34,23 @@ public:
                 cout << "\n\nField";
                 cout
                         <<
-                        "\nYou’re standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. Almost ominous with the state of the weather, like you know a storm is coming. You hear the wind in your ears, feel it on your skin. It’s cold, you desperately want to go inside.\n";
+                        "\nYou’re standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. "
+                        "\nAlmost ominous with the state of the weather, like you know a storm is coming. You hear the wind in your ears, feel it on your skin. "
+                        "\nIt’s cold, you desperately want to go inside.\n";
                 break;
             case 1:
                 cout << "\n\nFront Door";
                 cout
                         <<
-                        "\nYou’ve walked up to the door. You can feel the warmth emanating from the door, the warm draught flooding your feet with warm air. You’re longing to open the door. Do you do it? Do you want to? You don’t know what this place is. You don’t know how you got here. Do you risk it?\n";
+                        "\nYou’ve walked up to the door. You can feel the warmth emanating from the door, the warm draught flooding your feet with warm air. "
+                        "\nYou’re longing to open the door. Do you do it? Do you want to? You don’t know what this place is. You don’t know how you got here. Do you risk it?\n";
                 break;
             case 2:
                 cout << "\n\nLobby";
                 cout
                         <<
-                        "\nYou were right, it’s warm in here. Maybe you do remember how some things work. There’s nobody here. You can see the elevator to the north, reception to the left and cafe on the right.\n";
+                        "\nYou were right, it’s warm in here. Maybe you do remember how some things work. There’s nobody here. "
+                        "\nYou can see the elevator to the north, reception to the left and cafe on the right.\n";
                 break;
             case 3:
                 cout << "\n\nReception";
@@ -58,7 +62,8 @@ public:
                 cout << "\n\nCafe";
                 cout
                         <<
-                        "\nYou rob the cash register and find some cash, you see a very appealing Not McDonald's cheeseburger. You take the cheeseburger and put the money back in the cash register to pay for it. Food.\n";
+                        "\nYou rob the cash register and find some cash, you see a very appealing Not McDonald's cheeseburger. "
+                        "\nYou take the cheeseburger and put the money back in the cash register to pay for it. Food.\n";
                 break;
 
             case 5:
@@ -302,8 +307,7 @@ public:
                     cout
                             <<
                             "\nYou decide to take a bit of a nap, unfortunately, you slept a bit too long. Something comes and eats you, you don't know what, because you were sleeping.\n";
-                    newHealth = -10;
-                    cout << "\n" << newHealth << " health";
+                    killedPlayer = true;
 
                 } else {
                     cout << "\nenter a valid option";
@@ -317,7 +321,6 @@ public:
                     newPosition = 6;
                 } else if (chosenAction == "3") {
                     newPosition = 6;
-                    cout << newHealth << " health";
                 } else if (chosenAction == "4") {
                     newPosition = 6;
                 }
@@ -370,9 +373,9 @@ public:
                 } else if (chosenAction == "3" && !is103LightOn) {
                     cout
                             <<
-                            "\nWhy would you wait? Do you even see the kind of place you're in right now? You feel a heavy blow to the skull. You feel your eyes go heavy and shut. Some footsteps approach you and you're dragged along the floor. You have been thrown out of the room.";
-                    newHealth = -4;
-                    cout << "\n" << newHealth << " health";
+                            "\nWhy would you wait? Do you even see the kind of place you're in right now? You smell a faint smell of a chemical. "
+                            "\nYou feel your eyes go heavy and shut. Some footsteps approach you and you're dragged along the floor. "
+                            "\nYou have been thrown out of the room.";
                     newPosition = 6;
                 } else if (chosenAction == "3" && is103LightOn) {
                     cout
@@ -496,8 +499,8 @@ public:
         return newPosition;
     }
 
-    int getNewHealth() {
-        return newHealth;
+    int getKilledPlayer() {
+        return killedPlayer;
     }
 
     int getFailedInputs() {
@@ -508,6 +511,8 @@ public:
         return newBattle;
         newBattle = 0;
     }
+
+
 
     int getMap(int currentLevel) {
         switch (currentLevel) {
@@ -522,9 +527,6 @@ public:
         }
     }
 
-    void resetNewHealth() {
-        newHealth = 0;
-    }
 
     void resetNewBattle() {
         newBattle = 0;

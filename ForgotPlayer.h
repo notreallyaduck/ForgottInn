@@ -31,9 +31,10 @@ public:
         isAlive = Life;
     }
 
-    void setHealth(int Health) {
-        health = health + Health;
+    void changeHealth(int damage) {
+        health = health - damage;
     }
+
 
     void setWeapon(int Weapon) {
         currentWeapon = Weapon;
@@ -41,6 +42,12 @@ public:
 
     void setName(string enteredName) {
         name = enteredName;
+    }
+
+    void setLife(bool dead){
+        if (dead){
+            health = 0;
+        }
     }
 
     void setSecond(int Weapon) {
@@ -51,7 +58,7 @@ public:
         position = Position;
     }
 
-    basic_string<char, char_traits<char>, allocator<char >> getName() {
+    basic_string<char, char_traits<char>, allocator<char> > getName() {
         return name;
     }
 
@@ -76,11 +83,11 @@ public:
         }
     }
 
-    int clearInventorySlot(int indexToRemove){
+    int clearInventorySlot(int indexToRemove) {
         inventory[indexToRemove].clear();
     }
 
-    basic_string<char, char_traits<char>, allocator<char >> getInventory(int i) {
+    basic_string<char, char_traits<char>, allocator<char> > getInventory(int i) {
         return inventory[i];
     }
 };

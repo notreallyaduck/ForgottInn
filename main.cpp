@@ -22,8 +22,6 @@ int main() {
     string userInput;
     bool verbose = false;
     int jumpInput = 0;
-    string currentEnemy;
-    int dropInput;
 
     //main menu
     menu:;
@@ -37,11 +35,11 @@ int main() {
     cin >> userInput;
     if (userInput == "1") {
         cout << "\n\n\nForgottInn is entirely text based game."
-                "\nTo play the game, read the descriptions that come up and action items you can perform. These will usually be listed with a number next to them, similar to the numbers on the main menu."
+                "\nTo play the game, read the descriptions that come up and action items you can perform. \nThese will usually be listed with a number next to them, similar to the numbers on the main menu."
                 "\nFor example:"
                 "\n\n[1] Enter Room"
                 "\n[2] Turn on lights"
-                "\n\nOccasionally, you will encounter an enemy, at which point the game will transition from being a single list to a battle mode with health, combat options and enemy information. It will be indicated when this happens.";
+                "\n\nOccasionally, you will encounter an enemy, at which point the game will transition from being a single list to a battle mode with health, combat options and enemy information. \nIt will be indicated when this happens.";
         goto menu;
     } else if (userInput == "2") {
         cout
@@ -62,7 +60,9 @@ int main() {
 
     //welcome message
     cout <<
-         "\n\nYou’re standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. Almost ominous with the state of the weather, like you know a storm is coming. You hear the wind in your ears, feel it on your skin. It’s cold, you desperately want to go inside. \n"
+         "\n\nYou’re standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. "
+         "\nAlmost ominous with the state of the weather, like you know a storm is coming. You hear the wind in your ears, feel it on your skin. "
+         "\nIt’s cold, you desperately want to go inside."
          "\nWell, there's nothing stopping you going into this building. The lights are all on, the door is open. Hotels usually have their heaters on in this weather.\n"
          "\nOr at least, you think they do."
          "\nYou don’t know if they do, you don't know how anything works, you don't remember.\n"
@@ -78,27 +78,22 @@ int main() {
         player1.setName(userInput);
     }
 
-    if (!empty(player1.getName()) && !verbose) {
+    if (player1.getName() != "" && !verbose) {
         cout << "Interesting " << player1.getName() << ", you remember your name.";
         player1.setPosition(0);
     }
 
     while (player1.getHealth() > 0 && playerScene1.getFailedInputs() != 10) {
 
-        cout << "\nHealth: " << player1.getHealth();
-
-        Battle1.getBattle(playerScene1.getNewBattle(), player1.getHealth());
-        player1.setHealth(Battle1.getNewHealth());
-        playerScene1.resetNewBattle();
-        player1.addToInventory(Battle1.getTakenItem());
-        Battle1.resetTakenItem();
-        if (player1.getHealth() < 0 || Battle1.isGameOver()) {
-            break;
+        if (verbose) { //If statement for verbose output
+            verboseOutput(userInput, playerScene1.getNewPosition(), playerScene1.getFailedInputs());
         }
 
+        cout << "\nHealth: " << player1.getHealth();
         playerScene1.getLook(player1.getPosition());
         playerScene1.getActions(player1.getPosition());
         cin >> userInput;
+
 
         if (userInput == "jump" && verbose) { //Jump to any room (for testing purposes)
             cout << "\nWhere would you like to jump?\n";
@@ -140,14 +135,16 @@ int main() {
             }
 
         } else {
+
             playerScene1.setChosenAction(player1.getPosition(), userInput);
             player1.setPosition(playerScene1.newPosition);
-            player1.setHealth(playerScene1.getNewHealth());
-            playerScene1.resetNewHealth();
-        }
+            Battle1.getBattle(playerScene1.getNewBattle(), player1.getHealth());
+            player1.addToInventory(Battle1.getTakenItem());
+            playerScene1.resetNewBattle();
+            Battle1.resetTakenItem();
+            player1.setLife(playerScene1.getKilledPlayer());
+            player1.changeHealth(Battle1.getTakenDamage());
 
-        if (verbose) { //If statement for verbose output
-            verboseOutput(userInput, playerScene1.getNewPosition(), playerScene1.getFailedInputs());
         }
     }
 
