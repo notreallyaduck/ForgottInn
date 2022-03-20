@@ -57,7 +57,8 @@ public:
                              "\n[1] Punch"
                              "\n[2] Duck"
                              "\n[3] Take Baton"
-                             "\n" << "Security Guard Health: " << enemyHealth;
+                             "\n" << "Security Guard Health: " << enemyHealth <<
+                             "\n> ";
 
                         cin >> chosenBattleOption;
                         if (chosenBattleOption == "1") {
@@ -75,6 +76,10 @@ public:
                             cout
                                     << "\nYou attempt to take the baton from the Security Guard's grasp. Oh no, you have angered him, he swings furiously and lands multiple hits to your head.";
                             takenDamage = takenDamage + 400;
+                        } else {
+                            cout
+                                    << "Because of your slow thinking, Security Guard hits you on the head with a baton very very hard.";
+                            takenDamage = takenDamage + 400;
                         }
                         playerHealth = playerHealth - takenDamage;
                         cout << "\nHealth: " << playerHealth;
@@ -84,7 +89,7 @@ public:
                         completedBattles[0] = true;
                         takenDamage = 0;
                         battleId = 0;
-                        cout << "\nYou take the baton and keep it for later use.";
+                        cout << "\nYou take the baton and keep it for later use. You notice a number scratched into a wall, 2865.";
                         takenItem = "Baton";
                     }
                 }
@@ -109,8 +114,8 @@ public:
                              "\n[1] Punch"
                              "\n[2] Hit with baton"
                              "\n[3] Pour soapy water on floor"
-
-                             "\n" << battleName << " Health: " << enemyHealth;
+                             "\n" << battleName << " Health: " << enemyHealth <<
+                             "\n> ";
 
                         cin >> chosenBattleOption;
                         if (chosenBattleOption == "1") {
@@ -127,6 +132,10 @@ public:
                             cout
                                     << "\nYou pour soapy water on the floor infront of the Janitor. But this one is smart, he doesn't step on it. He throws a large full bottle of toilet cleaner directly at your head. Ouch, that hurt.";
                             takenDamage = takenDamage + 8;
+                        } else {
+                            cout
+                                    << "Because of your slow thinking, Janitor hits you on the head with a mop very very hard.";
+                            takenDamage = takenDamage + 20;
                         }
                         playerHealth = playerHealth - takenDamage;
                         cout << "\nHealth: " << playerHealth;
@@ -137,7 +146,7 @@ public:
                         battleId = 0;
                         takenDamage = 0;
                         cout
-                                << "\nYou look at the deformed face of the Janitor. You look at his id and see what it says. He looks a lot more normal, the expiration date on his card says 2024, about 10 years ago.";
+                                << "\nYou look at the deformed face of the Janitor. You look at his id and see what it says. \nHe looks a lot more normal, the expiration date on his card says 2024, about 10 years ago. \nThere's also another number on there, 2286. \nRemember it, might come in handy.";
                         takenItem = "ID Card";
                     }
                 }
@@ -162,8 +171,8 @@ public:
                              "\n[1] Punch"
                              "\n[2] Hit with baton"
                              "\n[3] Throw goose cousins"
-
-                             "\n" << battleName << " Health: " << enemyHealth;
+                             "\n" << battleName << " Health: " << enemyHealth <<
+                             "\n> ";
 
                         cin >> chosenBattleOption;
                         if (chosenBattleOption == "1") {
@@ -180,6 +189,9 @@ public:
                             cout
                                     << "\nYou open the freezer and pick up a goose, Goose stares at you with a furious frown. Regardless, you throw the frozen goose at Goose. GOOSE GETS REALLY MAD AT YOU, HOW DARE YOU DISRESPECT HIS SPECIES??? HE LIFTS HIS GIANT WEBBED FOOT AND SMOTHERS YOU ON THE FLOOR,";
                             takenDamage = takenDamage + 8000000;
+                        } else {
+                            cout << "Because of your slow thinking, Goose hits you on the head very very hard.";
+                            takenDamage = takenDamage + 400;
                         }
                         playerHealth = playerHealth - takenDamage;
                         cout << "\nHealth: " << playerHealth;
@@ -211,7 +223,7 @@ public:
         return takenDamage;
     }
 
-    basic_string<char, char_traits<char>, allocator<char > > getTakenItem() {
+    basic_string<char, char_traits<char>, allocator<char> > getTakenItem() {
         return takenItem;
     }
 
@@ -219,7 +231,7 @@ public:
         return gameOver;
     }
 
-    void resetTakenItem(){
+    void resetTakenItem() {
         takenItem.clear();
     }
 

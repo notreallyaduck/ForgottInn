@@ -20,6 +20,9 @@ public:
     int newBattle = 0;
     bool is103LightOn = false;
     bool killedPlayer = false;
+    bool is108Locked = true;
+    bool is218Locked = true;
+
 
     ForgotScene(int Scene) {
         currentScene = Scene;
@@ -345,6 +348,17 @@ public:
                 } else if (chosenAction == "3") {
                     newPosition = 9;
                 } else if (chosenAction == "4") {
+                    if (is108Locked){
+                        cout << "\nThis room requires a pin\nEnter Pin: ";
+                        int room108Pin;
+                        cin >> room108Pin;
+                        if (room108Pin == 2865){
+                            newPosition = 10;
+                        } else {
+                            cout << "\nWrong pin, go away";
+                            newPosition = 6;
+                        }
+                    }
                     newPosition = 10;
                 } else {
                     cout << "\nenter a valid option";
@@ -440,7 +454,17 @@ public:
                 if (chosenAction == "1") {
                     newPosition = 11;
                 } else if (chosenAction == "2") {
-                    newPosition = 16;
+                    if (is108Locked){
+                        cout << "\nThis elevator requires a pin\nEnter Pin: ";
+                        int supplyPin;
+                        cin >> supplyPin;
+                        if (supplyPin == 2286){
+                            newPosition = 16;
+                        } else {
+                            cout << "\nWrong pin, go away";
+                            newPosition = 14;
+                        }
+                    }
                 } else {
                     cout << "\nenter a valid option";
                     failedInputs++;
