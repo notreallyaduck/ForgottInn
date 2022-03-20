@@ -23,6 +23,7 @@ int main() {
     bool verbose = false;
     int jumpInput = 0;
 
+
     //main menu
     menu:;
     cout << "\n\n\n[Main Menu]"
@@ -91,11 +92,15 @@ int main() {
 
         cout << "\nHealth: " << player1.getHealth();
         playerScene1.getLook(player1.getPosition());
+        cout << "\nItems in this room: " << playerScene1.getObjects(player1.getPosition());
+        cout << "\nMap, Drop, Take, Inventory and Exit are universal commands\n";
+
+
         playerScene1.getActions(player1.getPosition());
         cin >> userInput;
 
 
-        if (userInput == "jump" && verbose) { //Jump to any room (for testing purposes)
+        if (userInput == "jump" || userInput == "Jump" && verbose) { //Jump to any room (for testing purposes)
             cout << "\nWhere would you like to jump?\n";
             cin >> jumpInput;
             if (jumpInput > 18) {
@@ -104,10 +109,10 @@ int main() {
                 player1.setPosition(jumpInput);
             }
 
-        } else if (userInput == "exit") {
+        } else if (userInput == "exit" || userInput == "quit" || userInput == "Exit" || userInput == "Quit") {
             goto exit;
 
-        } else if (userInput == "inventory") {
+        } else if (userInput == "inventory" || userInput == "Inventory" || userInput == "inv") {
             cout << "\nType drop to remove an item from your inventory";
             cout << "\n\nInventory:";
             for (int i = 0; i < 5; i++) {
@@ -115,7 +120,7 @@ int main() {
                     cout << "\n[" << i + 1 << "] " << player1.inventory[i];
                 }
             }
-        } else if (userInput == "drop"){
+        } else if (userInput == "drop" || userInput == "Drop"){
             cout << "\n\nInventory:";
             for (int i = 0; i < 5; i++) {
                 if (i <= 4) {
@@ -123,17 +128,24 @@ int main() {
                 }
             }
 
-            cout<<"\nEnter an item to remove: ";
+            cout<<"\nEnter an item to remove\n> ";
             string wordQuery;
             cin >> wordQuery;
             for (int i = 0; i < 5; i++) {
                 if (player1.getInventory(i) == wordQuery) {
                     player1.clearInventorySlot(i);
                     cout << "\n" << wordQuery << " has been removed";
-
+                    playerScene1.setDroppedObject(wordQuery, player1.getPosition());
                 }
             }
 
+        } else if(userInput == "take" || userInput == "Take" || userInput == "Pick"){
+            cout << "\nWhat item would you like to take?\n> ";
+            string takeRequest;
+            cin >> takeRequest;
+            player1.addToInventory(playerScene1.takenItem(takeRequest, player1.getPosition()));
+        } else if (userInput == "Map" || userInput == "map"){
+            playerScene1.getMap(player1.getPosition());
         } else {
 
             playerScene1.setChosenAction(player1.getPosition(), userInput);

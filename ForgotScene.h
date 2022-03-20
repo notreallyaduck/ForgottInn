@@ -13,15 +13,36 @@ using namespace std;
 
 class ForgotScene {
 public:
-    int currentScene;
     int newPosition = 0;
     string chosenAction;
     int failedInputs = 0;
     int newBattle = 0;
+    string currentScene;
     bool is103LightOn = false;
     bool killedPlayer = false;
     bool is108Locked = true;
     bool is218Locked = true;
+    string objects0[10] = {};
+    string objects1[10] = {};
+    string objects2[10] = {};
+    string objects3[10] = {"Mints"};
+    string objects4[10] = {"Coffee"};
+    string objects5[10] = {};
+    string objects6[10] = {};
+    string objects7[10] = {"Roast Chicken"};
+    string objects8[10] = {"Keys"};
+    string objects9[10] = {};
+    string objects10[10] = {"Newspaper"};
+    string objects11[10] = {};
+    string objects12[10] = {"Toilet Cleaner"};
+    string objects13[10] = {};
+    string objects14[10] = {};
+    string objects15[10] = {};
+    string objects16[10] = {"Frozen Goose"};
+    string objects17[10] = {};
+    string objects18[10] = {};
+    string objects19[10] = {};
+
 
 
     ForgotScene(int Scene) {
@@ -348,11 +369,11 @@ public:
                 } else if (chosenAction == "3") {
                     newPosition = 9;
                 } else if (chosenAction == "4") {
-                    if (is108Locked){
+                    if (is108Locked) {
                         cout << "\nThis room requires a pin\nEnter Pin: ";
                         int room108Pin;
                         cin >> room108Pin;
-                        if (room108Pin == 2865){
+                        if (room108Pin == 2865) {
                             newPosition = 10;
                         } else {
                             cout << "\nWrong pin, go away";
@@ -454,12 +475,12 @@ public:
                 if (chosenAction == "1") {
                     newPosition = 11;
                 } else if (chosenAction == "2") {
-                    if (is108Locked){
+                    if (is108Locked) {
                         cout << "\nThis elevator requires a pin\nEnter Pin: ";
                         int supplyPin;
                         cin >> supplyPin;
-                        if (supplyPin == 2286){
-                            newPosition = 16;
+                        if (supplyPin == 2286) {
+                            newPosition = 18;
                         } else {
                             cout << "\nWrong pin, go away";
                             newPosition = 14;
@@ -504,9 +525,11 @@ public:
                 if (chosenAction == "1") {
                     newPosition = 15;
                 } else if (chosenAction == "2") {
-                    cout << "You try to turn off the hot water. I don't know if you're crazy or what, but that's not gonna help you one bit.";
-                } else if (chosenAction == "3"){
-                    cout << "You're not an electrician (and you don't know how switches work). Why would you turn off the electricity anyway?";
+                    cout
+                            << "You try to turn off the hot water. I don't know if you're crazy or what, but that's not gonna help you one bit.";
+                } else if (chosenAction == "3") {
+                    cout
+                            << "You're not an electrician (and you don't know how switches work). Why would you turn off the electricity anyway?";
                 } else {
                     cout << "\nenter a valid option";
                     failedInputs++;
@@ -537,20 +560,560 @@ public:
     }
 
 
-
-    int getMap(int currentLevel) {
-        switch (currentLevel) {
-            case 0:
-                cout << "\nMap of Level Zero";
-            case 1:
-                cout << "\nMap of Level One";
-            case 2:
-                cout << "\nMap of Level Two";
-            case 3:
-                cout << "\nMap of Level Three";
+    int getMap(int currentScene) {
+        switch (currentScene) {
+            case 0: case 1: case 2: case 3: case 4: case 5:
+                cout << "\nMap of Ground Floor\n";
+                cout << "\n                   (Elevator)"
+                        "\n                       |"
+                        "\n(Cafe) — (Lobby) — (Reception)"
+                        "\n            |"
+                        "\n         (Field)\n";
+                break;
+                case 6: case 7: case 8: case 9: case 10:
+                cout << "\nMap of Level One\n"
+                        "\n                                         |—— (Room 108 REQUIRES PASSCODE)^"
+                        "\n                                         |—— (Room 106)"
+                        "\n(Kitchen)  — (Level 1 Hallway) — (Room 103)"
+                        "\n                     |"
+                        "\n                (Elevator)\n";
+                break;
+                case 11: case 12: case 13: case 14:
+                cout << "\nMap of Level Two\n"
+                        "\n                |—— (Room 218 ELEVATOR REQUIRES PASSCODE)^"
+                        "\n                |—— (Room 208)"
+                        "\n(Level 1 Hallway) — (Room 204)"
+                        "\n       |"
+                        "\n  (Elevator)\n";
+                break;
+                case 15: case 16: case 17: case 18:
+                cout << "\nMap of Level Three\n"
+                        "\n                |—— (Room 315)"
+                        "\n                |—— (Room 312)"
+                        "\n(Level 1 Hallway) — (Room 304) >"
+                        "\n       |"
+                        "\n   (Elevator)\n";
+                break;
         }
     }
 
+    basic_string<char, char_traits<char>, allocator<char>> getObjects(int currentScene) {
+        switch (currentScene) {
+            case 0:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects0[i];
+                    }
+                }
+                break;
+
+            case 1:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects1[i];
+                    }
+                }
+                break;
+
+            case 2:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects2[i];
+                    }
+                }
+                break;
+
+            case 3:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects3[i];
+                    }
+                }
+                break;
+
+            case 4:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects4[i];
+                    }
+                }
+                break;
+
+            case 5:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects5[i];
+                    }
+                }
+                break;
+
+            case 6:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects6[i];
+                    }
+                }
+                break;
+
+            case 7:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects7[i];
+                    }
+                }
+                break;
+
+            case 8:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects8[i];
+                    }
+                }
+                break;
+
+            case 9:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects9[i];
+                    }
+                }
+                break;
+
+            case 10:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects10[i];
+                    }
+                }
+                break;
+
+            case 11:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects11[i];
+                    }
+                }
+                break;
+
+            case 12:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects12[i];
+                    }
+                }
+                break;
+
+            case 13:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects13[i];
+                    }
+                }
+                break;
+
+            case 14:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects14[i];
+                    }
+                }
+                break;
+
+            case 15:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects15[i];
+                    }
+                }
+                break;
+
+            case 16:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects16[i];
+                    }
+                }
+                break;
+
+            case 17:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects17[i];
+                    }
+                }
+                break;
+
+            case 18:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects18[i];
+                    }
+                }
+                break;
+
+            case 19:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        return objects19[i];
+                    }
+                }
+                break;
+            default:
+                return "\nNo objects found";
+        }
+    }
+
+    int setDroppedObject(string drop, int currentScene){
+        switch (currentScene) {
+            case 0:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects0[i] = drop;
+                    }
+                }
+                break;
+
+            case 1:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects1[i] = drop;
+                    }
+                }
+                break;
+
+            case 2:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects2[i] = drop;
+                    }
+                }
+                break;
+
+            case 3:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects3[i] = drop;
+                    }
+                }
+                break;
+
+            case 4:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects4[i] = drop;
+                    }
+                }
+                break;
+
+            case 5:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects5[i] = drop;
+                    }
+                }
+                break;
+
+            case 6:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects6[i] = drop;
+                    }
+                }
+                break;
+
+            case 7:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects7[i] = drop;
+                    }
+                }
+                break;
+
+            case 8:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects8[i] = drop;
+                    }
+                }
+                break;
+
+            case 9:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects9[i] = drop;
+                    }
+                }
+                break;
+
+            case 10:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects10[i] = drop;
+                    }
+                }
+                break;
+
+            case 11:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects11[i] = drop;
+                    }
+                }
+                break;
+
+            case 12:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects12[i] = drop;
+                    }
+                }
+                break;
+
+            case 13:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects13[i] = drop;
+                    }
+                }
+                break;
+
+            case 14:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects14[i] = drop;
+                    }
+                }
+                break;
+
+            case 15:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects15[i] = drop;
+                    }
+                }
+                break;
+
+            case 16:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects16[i] = drop;
+                    }
+                }
+                break;
+
+            case 17:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects17[i] = drop;
+                    }
+                }
+                break;
+
+            case 18:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects18[i] = drop;
+                    }
+                }
+                break;
+
+            case 19:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i].empty() && i != 5) {
+                        objects19[i] = drop;
+                    }
+                }
+                break;
+            default:
+                cout << "Error: failed to drop object";
+        }
+    }
+
+    basic_string<char, char_traits<char>, allocator<char>> takenItem(string item, int position){
+        switch (position) {
+            case 0:
+                for (int i = 0; i < 5; i++) {
+                    if (objects0[i] == item && i != 5) {
+                        objects0[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 1:
+                for (int i = 0; i < 5; i++) {
+                    if (objects1[i] == item && i != 5) {
+                        objects1[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 2:
+                for (int i = 0; i < 5; i++) {
+                    if (objects2[i] == item && i != 5) {
+                        objects2[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 3:
+                for (int i = 0; i < 5; i++) {
+                    if (objects3[i] == item && i != 5) {
+                        objects3[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 4:
+                for (int i = 0; i < 5; i++) {
+                    if (objects4[i] == item && i != 5) {
+                        objects4[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 5:
+                for (int i = 0; i < 5; i++) {
+                    if (objects5[i].empty() && i != 5) {
+                        objects5[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 6:
+                for (int i = 0; i < 5; i++) {
+                    if (objects6[i] == item && i != 5) {
+                        objects6[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 7:
+                for (int i = 0; i < 5; i++) {
+                    if (objects7[i] == item && i != 5) {
+                        objects7[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 8:
+                for (int i = 0; i < 5; i++) {
+                    if (objects8[i] == item && i != 5) {
+                        objects8[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 9:
+                for (int i = 0; i < 5; i++) {
+                    if (objects9[i] == item && i != 5) {
+                        objects9[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 10:
+                for (int i = 0; i < 5; i++) {
+                    if (objects10[i] == item && i != 5) {
+                        objects10[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 11:
+                for (int i = 0; i < 5; i++) {
+                    if (objects11[i] == item && i != 5) {
+                        objects11[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 12:
+                for (int i = 0; i < 5; i++) {
+                    if (objects12[i] == item && i != 5) {
+                        objects12[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 13:
+                for (int i = 0; i < 5; i++) {
+                    if (objects13[i] == item && i != 5) {
+                        objects13[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 14:
+                for (int i = 0; i < 5; i++) {
+                    if (objects14[i] == item && i != 5) {
+                        objects14[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 15:
+                for (int i = 0; i < 5; i++) {
+                    if (objects15[i] == item && i != 5) {
+                        objects15[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 16:
+                for (int i = 0; i < 5; i++) {
+                    if (objects16[i] == item && i != 5) {
+                        objects16[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 17:
+                for (int i = 0; i < 5; i++) {
+                    if (objects17[i] == item && i != 5) {
+                        objects17[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 18:
+                for (int i = 0; i < 5; i++) {
+                    if (objects18[i] == item && i != 5) {
+                        objects18[i].clear();
+                        return item;
+                    }
+                }
+                break;
+
+            case 19:
+                for (int i = 0; i < 5; i++) {
+                    if (objects19[i] == item && i != 5) {
+                        objects19[i].clear();
+                        return item;
+                    }
+                }
+                break;
+            default:
+                cout << "Error: failed to take object";
+        }
+    }
 
     void resetNewBattle() {
         newBattle = 0;
