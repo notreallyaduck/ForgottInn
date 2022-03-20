@@ -3,6 +3,8 @@
 //
 #include <string>
 
+#include <iostream>
+
 #ifndef FORGOTTINN_FORGOTPLAYER_H
 #define FORGOTTINN_FORGOTPLAYER_H
 
@@ -16,10 +18,15 @@ public:
     int position;
     int currentWeapon = 0;
     int secondaryWeapon = 0;
+    string inventory[5] = {
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
 
-
-    ForgotPlayer(string Name, int Health, bool Life) {
-        name = Name;
+    ForgotPlayer(int Health, bool Life) {
         health = Health;
         isAlive = Life;
     }
@@ -32,6 +39,10 @@ public:
         currentWeapon = Weapon;
     }
 
+    void setName(string enteredName) {
+        name = enteredName;
+    }
+
     void setSecond(int Weapon) {
         secondaryWeapon = Weapon;
     }
@@ -40,7 +51,7 @@ public:
         position = Position;
     }
 
-    basic_string<char, char_traits<char>, allocator<char>> getName() {
+    basic_string<char, char_traits<char>, allocator<char >> getName() {
         return name;
     }
 
@@ -55,7 +66,23 @@ public:
     int getPosition() {
         return position;
     }
-};
 
+    int addToInventory(string item) {
+        for (int i = 0; i < 5; i++) {
+            if (inventory[i].empty() && i != 5) {
+                inventory[i] = item;
+                break;
+            }
+        }
+    }
+
+    int clearInventorySlot(int indexToRemove){
+        inventory[indexToRemove].clear();
+    }
+
+    basic_string<char, char_traits<char>, allocator<char >> getInventory(int i) {
+        return inventory[i];
+    }
+};
 
 #endif //FORGOTTINN_FORGOTPLAYER_H

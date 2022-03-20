@@ -90,6 +90,12 @@ build CMakeFiles/ForgottInn.dir/ForgotScene.cpp.o: CXX_COMPILER__ForgottInn_Debu
   OBJECT_DIR = CMakeFiles/ForgottInn.dir
   OBJECT_FILE_DIR = CMakeFiles/ForgottInn.dir
 
+build CMakeFiles/ForgottInn.dir/ForgotBattle.cpp.o: CXX_COMPILER__ForgottInn_Debug /Users/sudesh/Git$ Projects/ForgottInn/ForgotBattle.cpp || cmake_object_order_depends_target_ForgottInn
+  DEP_FILE = CMakeFiles/ForgottInn.dir/ForgotBattle.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++2a
+  OBJECT_DIR = CMakeFiles/ForgottInn.dir
+  OBJECT_FILE_DIR = CMakeFiles/ForgottInn.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ForgottInn
@@ -98,7 +104,7 @@ build CMakeFiles/ForgottInn.dir/ForgotScene.cpp.o: CXX_COMPILER__ForgottInn_Debu
 #############################################
 # Link the executable ForgottInn
 
-build ForgottInn: CXX_EXECUTABLE_LINKER__ForgottInn_Debug CMakeFiles/ForgottInn.dir/main.cpp.o CMakeFiles/ForgottInn.dir/ForgotPlayer.cpp.o CMakeFiles/ForgottInn.dir/ForgotScene.cpp.o
+build ForgottInn: CXX_EXECUTABLE_LINKER__ForgottInn_Debug CMakeFiles/ForgottInn.dir/main.cpp.o CMakeFiles/ForgottInn.dir/ForgotPlayer.cpp.o CMakeFiles/ForgottInn.dir/ForgotScene.cpp.o CMakeFiles/ForgottInn.dir/ForgotBattle.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/ForgottInn.dir
   POST_BUILD = :
