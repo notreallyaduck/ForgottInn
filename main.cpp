@@ -84,7 +84,7 @@ int main() {
         player1.setPosition(0);
     }
 
-    while (player1.getHealth() > 0 && playerScene1.getFailedInputs() != 10) {
+    while (player1.getHealth() > 0 && playerScene1.getFailedInputs() != 10 && !Battle1.isGameOver()) {
 
         if (verbose) { //If statement for verbose output
             verboseOutput(userInput, playerScene1.getNewPosition(), playerScene1.getFailedInputs());
@@ -92,7 +92,14 @@ int main() {
 
         cout << "\nHealth: " << player1.getHealth();
         playerScene1.getLook(player1.getPosition());
-        cout << "\nItems in this room: " << playerScene1.getObjects(player1.getPosition());
+        cout << "\nItems in this room:";
+
+        for (int i = 0; i < 5; i++) {
+            if (i <= 4) {
+            cout << " " << playerScene1.getObjects(player1.getPosition(), i);
+            }
+        }
+
         cout << "\nMap, Drop, Take, Inventory and Exit are universal commands\n";
 
 
@@ -161,9 +168,9 @@ int main() {
     }
 
     if (Battle1.isGameOver()) {
-
+        return 0;
     } else {
-        cout << "\a\nYou have died " << player1.getName() << ". Restart the game to play again.";
+        cout << "\a\nYou have died " << player1.getName() << ". Restart the game to have another go.";
         if (playerScene1.getFailedInputs() == 10) {
             cout << "\nReason: inability to follow instructions";
         } else {
