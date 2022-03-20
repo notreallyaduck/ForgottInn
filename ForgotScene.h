@@ -21,7 +21,7 @@ public:
     bool killedPlayer = false;
     bool is108Locked = true;
     bool is218Locked = true;
-    string objects0[10] = {"cheese", "pizza"};
+    string objects0[10] = {};
     string objects1[10] = {};
     string objects2[10] = {};
     string objects3[10] = {"Mints"};
@@ -644,189 +644,173 @@ public:
     int setDroppedObject(string drop, int currentScene){
         switch (currentScene) {
             case 0:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects0[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects0[i].empty() && i != 5) {
                         objects0[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 1:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects1[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects1[i].empty() && i != 5) {
                         objects1[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 2:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects2[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects2[i].empty() && i != 5) {
                         objects2[i] = drop;
+                        break;
                     }
                 }
                 break;
 
             case 3:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects3[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects3[i].empty() && i != 5) {
                         objects3[i] = drop;
+                        break;
                     }
                 }
                 break;
 
             case 4:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects4[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects4[i].empty() && i != 5) {
                         objects4[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 5:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects5[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects5[i].empty() && i != 5) {
                         objects5[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 6:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects6[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects6[i].empty() && i != 5) {
                         objects6[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 7:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects7[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects7[i].empty() && i != 5) {
                         objects7[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 8:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects8[i].empty() && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects8[i].empty()) {
                         objects8[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 9:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects9[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects9[i].empty() && i != 5) {
                         objects9[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 10:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects10[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects10[i].empty() && i != 5) {
                         objects10[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 11:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects11[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects11[i].empty() && i != 5) {
                         objects11[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 12:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects12[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects12[i].empty() && i != 5) {
                         objects12[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 13:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects13[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects13[i].empty() && i != 5) {
                         objects13[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 14:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects14[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects14[i].empty() && i != 5) {
                         objects14[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 15:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects15[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects15[i].empty() && i != 5) {
                         objects15[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 16:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects16[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects16[i].empty() && i != 5) {
                         objects16[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 17:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects17[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects17[i].empty() && i != 5) {
                         objects17[i] = drop;
-                        dropped = true;
+                        break;
                     }
                 }
                 break;
 
             case 18:
-                for (int i = 0; i < 5; i++) {
-                    bool dropped;
-                    if (objects18[i].empty() && i != 5 && !dropped) {
+                for (int i = 0; i < 9; i++) {
+                    if (objects18[i].empty() && i != 5) {
                         objects18[i] = drop;
-                        dropped = true;
+                        break;
+                        break;
                     }
                 }
                 break;
@@ -839,7 +823,7 @@ public:
     basic_string<char, char_traits<char>, allocator<char> > takenItem(string item, int position){
         switch (position) {
             case 0:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects0[i] == item && i != 5) {
                         objects0[i].clear();
                         return item;
@@ -848,7 +832,7 @@ public:
                 break;
 
             case 1:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects1[i] == item && i != 5) {
                         objects1[i].clear();
                         return item;
@@ -857,7 +841,7 @@ public:
                 break;
 
             case 2:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects2[i] == item && i != 5) {
                         objects2[i].clear();
                         return item;
@@ -866,7 +850,7 @@ public:
                 break;
 
             case 3:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects3[i] == item && i != 5) {
                         objects3[i].clear();
                         return item;
@@ -875,7 +859,7 @@ public:
                 break;
 
             case 4:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects4[i] == item && i != 5) {
                         objects4[i].clear();
                         return item;
@@ -884,7 +868,7 @@ public:
                 break;
 
             case 5:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects5[i].empty() && i != 5) {
                         objects5[i].clear();
                         return item;
@@ -893,7 +877,7 @@ public:
                 break;
 
             case 6:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects6[i] == item && i != 5) {
                         objects6[i].clear();
                         return item;
@@ -902,7 +886,7 @@ public:
                 break;
 
             case 7:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects7[i] == item && i != 5) {
                         objects7[i].clear();
                         return item;
@@ -911,7 +895,7 @@ public:
                 break;
 
             case 8:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects8[i] == item && i != 5) {
                         objects8[i].clear();
                         return item;
@@ -920,7 +904,7 @@ public:
                 break;
 
             case 9:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects9[i] == item && i != 5) {
                         objects9[i].clear();
                         return item;
@@ -929,7 +913,7 @@ public:
                 break;
 
             case 10:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects10[i] == item && i != 5) {
                         objects10[i].clear();
                         return item;
@@ -938,7 +922,7 @@ public:
                 break;
 
             case 11:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects11[i] == item && i != 5) {
                         objects11[i].clear();
                         return item;
@@ -947,7 +931,7 @@ public:
                 break;
 
             case 12:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects12[i] == item && i != 5) {
                         objects12[i].clear();
                         return item;
@@ -956,7 +940,7 @@ public:
                 break;
 
             case 13:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects13[i] == item && i != 5) {
                         objects13[i].clear();
                         return item;
@@ -965,7 +949,7 @@ public:
                 break;
 
             case 14:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects14[i] == item && i != 5) {
                         objects14[i].clear();
                         return item;
@@ -974,7 +958,7 @@ public:
                 break;
 
             case 15:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects15[i] == item && i != 5) {
                         objects15[i].clear();
                         return item;
@@ -983,7 +967,7 @@ public:
                 break;
 
             case 16:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects16[i] == item && i != 5) {
                         objects16[i].clear();
                         return item;
@@ -992,7 +976,7 @@ public:
                 break;
 
             case 17:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects17[i] == item && i != 5) {
                         objects17[i].clear();
                         return item;
@@ -1001,7 +985,7 @@ public:
                 break;
 
             case 18:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects18[i] == item && i != 5) {
                         objects18[i].clear();
                         return item;
@@ -1010,7 +994,7 @@ public:
                 break;
 
             case 19:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 9; i++) {
                     if (objects19[i] == item && i != 5) {
                         objects19[i].clear();
                         return item;
