@@ -21,7 +21,7 @@ int verboseOutput(string userInput, int newPosition, int failedInputs) { //text 
 
 int main() {
 
-    cout << "\nForgottInn v1.1.0";
+    cout << "\nForgottInn v1.2.2";
 
     string userInput; //To hold any user inputs
     // string userInput;
@@ -172,14 +172,17 @@ int main() {
     }
 
     if (Battle1.isGameOver()) { //Ends process with no output because ForgotBattle will output the end message
-        return 0;
+        string endofgame;
+        cin >> endofgame;
     } else {
+        string endofgame;
         cout << "\a\nYou have died " << player1.getName() << ". Restart the game to have another go."; //death message
         if (playerScene1.getFailedInputs() == 10) {
             cout << "\nReason: inability to follow instructions"; //death message due to entering gibberish too many times
         } else {
             cout << "\nReason: death"; //death message for health <= 0
         }
+        cin >> endofgame;
     }
     exit:;
 

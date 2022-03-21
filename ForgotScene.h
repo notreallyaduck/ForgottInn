@@ -132,7 +132,7 @@ public:
             case 10:
                 cout << "\n\nRoom 108";
                 cout
-                        << "\nYou enter a hotel room, dust covers everything in the room. You find a newspaper on the floor, the headline reads “RAPIDLY SPREADING GOOSE PATHOGEN CAUSES HUMAN MUTATIONS AND GIANT GEESE. HUMANITY CLOSE TO EXTINCTION”. There is a rope leading out the window and up to the next level.";
+                        << "\nYou enter a hotel room, dust covers everything in the room. You find a newspaper on the floor, the headline reads RAPIDLY SPREADING GOOSE PATHOGEN CAUSES HUMAN MUTATIONS AND GIANT GEESE. HUMANITY CLOSE TO EXTINCTION. There is a rope leading out the window and up to the next level.";
                 break;
             case 11:
                 cout << "\n\nFloor 2 hallway";
