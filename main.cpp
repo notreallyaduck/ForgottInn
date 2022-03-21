@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include <strings.h>
+
 #include "ForgotPlayer.h"
 
 #include "ForgotScene.h"
