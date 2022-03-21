@@ -53,7 +53,7 @@ public:
 
                     cout
                             <<
-                            "\n\nThe door is shut. This room looks like a security room, there are 5 displays with security camera footage from the Front door, Lobby, Reception, Cafeteria and Rooftop. Hold on, you hear a deafening scraping noise coming from the corner of the room. Your heart rate rises as you see the deformed shape in front of you, you’d be mistaken for thinking this thing was a human from afar, but up close you can see the deformities. He’s wearing the uniform of a security guard. Maybe he is a human. What the hell happened to him?";
+                            "\n\nThe door is shut. This room looks like a security room, there are 5 displays with security camera footage from the Front door, Lobby, Reception, Cafeteria and Rooftop. Hold on, you hear a deafening scraping noise coming from the corner of the room. Your heart rate rises as you see the deformed shape in front of you, you'd be mistaken for thinking this thing was a human from afar, but up close you can see the deformities. He's wearing the uniform of a security guard. Maybe he is a human. What the hell happened to him?";
 
                     while (enemyHealth > 0 && playerHealth > 0) {
                         startSG:;

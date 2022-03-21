@@ -61,29 +61,29 @@ public:
                 cout << "\n\nField";
                 cout
                         <<
-                        "\nYou’re standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. "
+                        "\nYou're standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. "
                         "\nAlmost ominous with the state of the weather, like you know a storm is coming. You hear the wind in your ears, feel it on your skin. "
-                        "\nIt’s cold, you desperately want to go inside.\n";
+                        "\nIt's cold, you desperately want to go inside.\n";
                 break;
             case 1:
                 cout << "\n\nFront Door";
                 cout
                         <<
-                        "\nYou’ve walked up to the door. You can feel the warmth emanating from the door, the warm draught flooding your feet with warm air. "
-                        "\nYou’re longing to open the door. Do you do it? Do you want to? You don’t know what this place is. You don’t know how you got here. Do you risk it?\n";
+                        "\nYou've walked up to the door. You can feel the warmth emanating from the door, the warm draught flooding your feet with warm air. "
+                        "\nYou're longing to open the door. Do you do it? Do you want to? You don't know what this place is. You don't know how you got here. Do you risk it?\n";
                 break;
             case 2:
                 cout << "\n\nLobby";
                 cout
                         <<
-                        "\nYou were right, it’s warm in here. Maybe you do remember how some things work. There’s nobody here. "
+                        "\nYou were right, it's warm in here. Maybe you do remember how some things work. There's nobody here. "
                         "\nYou can see the elevator to the north, reception to the left and cafe on the right.\n";
                 break;
             case 3:
                 cout << "\n\nReception";
                 cout
                         <<
-                        "\nYou walk up to the reception, there’s nobody here, you see the receptionist’s computer on. A cash register and a bowl of mints.\n";
+                        "\nYou walk up to the reception, there's nobody here, you see the receptionist's computer on. A cash register and a bowl of mints.\n";
                 break;
             case 4:
                 cout << "\n\nCafe";
@@ -97,7 +97,7 @@ public:
                 cout << "\n\nElevator";
                 cout
                         <<
-                        "\nYou’ve entered an elevator, mirrors on all sides, you look at your face. It looks familiar. The bottom half of each wall is filled with buttons. 3 of these buttons are lit up.\n";
+                        "\nYou've entered an elevator, mirrors on all sides, you look at your face. It looks familiar. The bottom half of each wall is filled with buttons. 3 of these buttons are lit up.\n";
                 break;
 
             case 6:
@@ -111,14 +111,14 @@ public:
                 cout << "\n\nKitchen";
                 cout
                         <<
-                        "\nYou enter the hotel’s kitchen, it’s just as empty here as it was downstairs. It smells of fresh roast chicken, you’d like some roast chicken right now. But you don’t know how to cook. There seems to be a lot more blood on the floor than you’d normally find in a kitchen. Seems like a bit of a health and safety issue.";
+                        "\nYou enter the hotel's kitchen, it's just as empty here as it was downstairs. It smells of fresh roast chicken, you'd like some roast chicken right now. But you don't know how to cook. There seems to be a lot more blood on the floor than you'd normally find in a kitchen. Seems like a bit of a health and safety issue.";
                 break;
             case 8:
                 cout << "\n\nRoom 103";
                 if (!is103LightOn) {
                     cout
                             <<
-                            "\nThe door shuts behind you. This room is pitch black, darker than any room you’ve ever seen before, there isn’t a single source of light in this room at all. A tingling sensation rolls down your spine as you notice something wrong about this room, you can hear something, someone breathing. You’re not alone in here.";
+                            "\nThe door shuts behind you. This room is pitch black, darker than any room you've ever seen before, there isn't a single source of light in this room at all. A tingling sensation rolls down your spine as you notice something wrong about this room, you can hear something, someone breathing. You're not alone in here.";
                 } else if (is103LightOn) {
                     cout
                             <<
@@ -127,7 +127,7 @@ public:
                 break;
             case 9:
                 cout << "\n\nRoom 106"
-                        "\nThis room looks like it’s been fully emptied to make more room for some brown boxes. You open one of them to discover hundreds of guns, the most dangerous weapon you know how to use is a water pistol, so you put the guns back in the box.";
+                        "\nThis room looks like it's been fully emptied to make more room for some brown boxes. You open one of them to discover hundreds of guns, the most dangerous weapon you know how to use is a water pistol, so you put the guns back in the box.";
                 break;
             case 10:
                 cout << "\n\nRoom 108";
@@ -146,7 +146,7 @@ public:
                 break;
             case 13:
                 cout << "\n\nRoom 209";
-                cout << "\nYou’re in another hotel room";
+                cout << "\nYou're in another hotel room";
                 break;
             case 14:
                 cout << "\n\nRoom 218";

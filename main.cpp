@@ -20,6 +20,7 @@ int verboseOutput(string userInput, int newPosition, int failedInputs) { //text 
 int main() {
 
     system("mode 650");
+    cout << "\nForgottInn v1.1.0";
     system("date");
     string userInput; //To hold any user inputs
     // string userInput;
@@ -64,14 +65,14 @@ int main() {
 
     //welcome message to display at start of game
     cout <<
-         "\n\nYou’re standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. "
+         "\n\nYou're standing in a field, completely deserted. Apart from the building to your north, taller than the clouds. "
          "\nAlmost ominous with the state of the weather, like you know a storm is coming. You hear the wind in your ears, feel it on your skin. "
-         "\nIt’s cold, you desperately want to go inside."
+         "\nIt's cold, you desperately want to go inside."
          "\nWell, there's nothing stopping you going into this building. The lights are all on, the door is open. Hotels usually have their heaters on in this weather.\n"
          "\nOr at least, you think they do."
-         "\nYou don’t know if they do, you don't know how anything works, you don't remember.\n"
+         "\nYou don't know if they do, you don't know how anything works, you don't remember.\n"
          "\nStart by remembering your name\n"
-         "What’s your name?\n";
+         "What's your name?\n";
     getline(std::cin >> std::ws, userInput);
 
     if (userInput == "verbose" || userInput == "Verbose") { //Enable verbose mode if user types "verbose" into name field
