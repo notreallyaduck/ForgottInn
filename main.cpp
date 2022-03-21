@@ -21,7 +21,7 @@ int verboseOutput(string userInput, int newPosition, int failedInputs) { //text 
 
 int main() {
 
-    cout << "\nForgottInn v1.2.3";
+    cout << "\nForgottInn v1.2.4";
 
     string userInput; //To hold any user inputs
     // string userInput;
