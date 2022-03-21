@@ -570,7 +570,7 @@ public:
                 cout << "\nMap of Ground Floor\n";
                 cout << "\n                   (Elevator)"
                         "\n                       |"
-                        "\n(Cafe) — (Lobby) — (Reception)"
+                        "\n(Cafe) - (Lobby) - (Reception)"
                         "\n            |"
                         "\n         (Field)\n";
                 break;
