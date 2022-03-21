@@ -824,49 +824,87 @@ public:
         }
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > takenItem(string item, int position){ //repmoves object at player's current scene to be put in player's inventory
+    basic_string<char, char_traits<char>, allocator<char> > takenItem(string item, int position){ //removes object at player's current scene to be put in player's inventory
+        bool found = false;
+
         switch (position) {
             case 0:
                 for (int i = 0; i < 9; i++) {
-                    if (objects0[i] == item && i != 5) {
+                    if (objects0[i] == item && i != 9) {
                         objects0[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 1:
                 for (int i = 0; i < 9; i++) {
-                    if (objects1[i] == item && i != 5) {
+                    if (objects1[i] == item && i != 9) {
                         objects1[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 2:
                 for (int i = 0; i < 9; i++) {
-                    if (objects2[i] == item && i != 5) {
+                    if (objects2[i] == item && i != 9) {
                         objects2[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 3:
                 for (int i = 0; i < 9; i++) {
-                    if (objects3[i] == item && i != 5) {
+                    if (objects3[i] == item && i != 9) {
                         objects3[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 4:
                 for (int i = 0; i < 9; i++) {
-                    if (objects4[i] == item && i != 5) {
+                    if (objects4[i] == item && i != 9) {
                         objects4[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
@@ -875,133 +913,238 @@ public:
                 for (int i = 0; i < 9; i++) {
                     if (objects5[i].empty() && i != 5) {
                         objects5[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 6:
                 for (int i = 0; i < 9; i++) {
-                    if (objects6[i] == item && i != 5) {
+                    if (objects6[i] == item && i != 9) {
                         objects6[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 7:
                 for (int i = 0; i < 9; i++) {
-                    if (objects7[i] == item && i != 5) {
+                    if (objects7[i] == item && i != 9) {
                         objects7[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 8:
                 for (int i = 0; i < 9; i++) {
-                    if (objects8[i] == item && i != 5) {
+                    if (objects8[i] == item && i != 9) {
                         objects8[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 9:
                 for (int i = 0; i < 9; i++) {
-                    if (objects9[i] == item && i != 5) {
+                    if (objects9[i] == item && i != 9) {
                         objects9[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 10:
                 for (int i = 0; i < 9; i++) {
-                    if (objects10[i] == item && i != 5) {
+                    if (objects10[i] == item && i != 9) {
                         objects10[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 11:
                 for (int i = 0; i < 9; i++) {
-                    if (objects11[i] == item && i != 5) {
+                    if (objects11[i] == item && i != 9) {
                         objects11[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 12:
                 for (int i = 0; i < 9; i++) {
-                    if (objects12[i] == item && i != 5) {
+                    if (objects12[i] == item && i != 9) {
                         objects12[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 13:
                 for (int i = 0; i < 9; i++) {
-                    if (objects13[i] == item && i != 5) {
+                    if (objects13[i] == item && i != 9) {
                         objects13[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 14:
                 for (int i = 0; i < 9; i++) {
-                    if (objects14[i] == item && i != 5) {
+                    if (objects14[i] == item && i != 9) {
                         objects14[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 15:
                 for (int i = 0; i < 9; i++) {
-                    if (objects15[i] == item && i != 5) {
+                    if (objects15[i] == item && i != 9) {
                         objects15[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 16:
                 for (int i = 0; i < 9; i++) {
-                    if (objects16[i] == item && i != 5) {
+                    if (objects16[i] == item && i != 9) {
                         objects16[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 17:
                 for (int i = 0; i < 9; i++) {
-                    if (objects17[i] == item && i != 5) {
+                    if (objects17[i] == item && i != 9) {
                         objects17[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 18:
                 for (int i = 0; i < 9; i++) {
-                    if (objects18[i] == item && i != 5) {
+                    if (objects18[i] == item && i != 9) {
                         objects18[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;
 
             case 19:
                 for (int i = 0; i < 9; i++) {
-                    if (objects19[i] == item && i != 5) {
+                    if (objects19[i] == item && i != 9) {
                         objects19[i].clear();
+                        found = true;
+                    }
+                    if (found == true){
+                        found = false;
                         return item;
+                    } else {
+                        cout << "\a\nItem not found";
+                        return "not found";
                     }
                 }
                 break;

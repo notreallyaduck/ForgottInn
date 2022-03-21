@@ -42,8 +42,8 @@ public:
         name = enteredName;
     }
 
-    void setLife(bool dead){ //sets player health to 0 if bool dead is true
-        if (dead){
+    void setLife(bool dead) { //sets player health to 0 if bool dead is true
+        if (dead) {
             health = 0;
         }
     }
@@ -69,19 +69,25 @@ public:
     }
 
     int addToInventory(string item) { //adds and item to the players inventory
-        for (int i = 0; i < 5; i++) {
-            if (inventory[i].empty() && i != 5) {
-                inventory[i] = item;
-                break;
+        if (item == "not found") {
+
+        } else {
+            for (int i = 0; i < 5; i++) {
+                if (inventory[i].empty() && i != 5) {
+                    inventory[i] = item;
+                    break;
+                }
             }
         }
+
     }
 
     int clearInventorySlot(int indexToRemove) { //removes an item from the player's inventory
         inventory[indexToRemove].clear();
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > getInventory(int i) { //returns the specified index of the player's inventory list
+    basic_string<char, char_traits<char>, allocator<char> >
+    getInventory(int i) { //returns the specified index of the player's inventory list
         return inventory[i];
     }
 };
