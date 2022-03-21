@@ -19,7 +19,10 @@ int verboseOutput(string userInput, int newPosition, int failedInputs) { //text 
 
 int main() {
 
+    system("mode 650");
+    system("date");
     string userInput; //To hold any user inputs
+    // string userInput;
     bool verbose = false; //Whether verbose mode is enabled or not
     int jumpInput = 0; //where to jump to
 
@@ -33,7 +36,7 @@ int main() {
             "\n[3] Play"
             "\n\nType the number before the option you want to select.\n";
 
-    cin >> userInput;
+    getline(cin >> ws, userInput);
     if (userInput == "1") { //How to play text to display if option 1 is selected
         cout << "\n\n\nForgottInn is entirely text based game."
                 "\nTo play the game, read the descriptions that come up and action items you can perform. \nThese will usually be listed with a number next to them, similar to the numbers on the main menu."
@@ -69,7 +72,7 @@ int main() {
          "\nYou don’t know if they do, you don't know how anything works, you don't remember.\n"
          "\nStart by remembering your name\n"
          "What’s your name?\n";
-    cin >> userInput;
+    getline(std::cin >> std::ws, userInput);
 
     if (userInput == "verbose" || userInput == "Verbose") { //Enable verbose mode if user types "verbose" into name field
         verbose = true;
@@ -128,7 +131,7 @@ int main() {
                 }
             }
         } else if (userInput == "drop" || userInput == "Drop"){ //Command to drop and item from inventory and into scene
-            cout << "\n\nInventory:";
+            cout << "\n\nNote: Drop is case sensitive\nInventory:";
             for (int i = 0; i < 5; i++) {
                 if (i <= 4) {
                     cout << "\n[" << i + 1 << "] " << player1.inventory[i];
@@ -137,7 +140,7 @@ int main() {
 
             cout<<"\nEnter an item to remove\n> ";
             string itemToRemove; //item to remove from player inventory
-            cin >> itemToRemove;
+            getline(std::cin >> std::ws, itemToRemove);
             for (int i = 0; i < 5; i++) {
                 if (player1.getInventory(i) == itemToRemove) { //Looks for specified item in player's inventory and removes it
                     player1.clearInventorySlot(i);
@@ -148,9 +151,8 @@ int main() {
 
         } else if(userInput == "take" || userInput == "Take" || userInput == "Pick"){ //Command to pick up an item from scene and place it in the player's inventory
             cout << "\nWhat item would you like to take?\n> ";
-            string takeRequest; //Player specifies item to take;
-            cin >> takeRequest;
-            player1.addToInventory(playerScene1.takenItem(takeRequest, player1.getPosition())); //Asks ForgotScene.h if item exists at the current location and puts it in the players inventory
+            getline(std::cin >> std::ws, userInput); //Player specifies item to take;
+            player1.addToInventory(playerScene1.takenItem(userInput, player1.getPosition())); //Asks ForgotScene.h if item exists at the current location and puts it in the players inventory
         } else if (userInput == "Map" || userInput == "map"){ //Command to display an onscreen map
             playerScene1.getMap(player1.getPosition()); //Current position is sent to getMap and map is printed in the console (cout)
         } else {

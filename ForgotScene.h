@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by Sudesh Arunachalam on 12/3/2022.
 //
 
@@ -28,20 +28,20 @@ public:
     string objects0[10] = {};
     string objects1[10] = {};
     string objects2[10] = {};
-    string objects3[10] = {"Mints"};
-    string objects4[10] = {"Coffee"};
+    string objects3[10] = {"mints"};
+    string objects4[10] = {"coffee"};
     string objects5[10] = {};
     string objects6[10] = {};
-    string objects7[10] = {"Roast Chicken"};
-    string objects8[10] = {"Keys"};
+    string objects7[10] = {"roast chicken"};
+    string objects8[10] = {"keys"};
     string objects9[10] = {};
-    string objects10[10] = {"Newspaper"};
+    string objects10[10] = {"newspaper"};
     string objects11[10] = {};
-    string objects12[10] = {"Toilet Cleaner"};
+    string objects12[10] = {"toilet cleaner"};
     string objects13[10] = {};
     string objects14[10] = {};
     string objects15[10] = {};
-    string objects16[10] = {"Frozen Goose"};
+    string objects16[10] = {"frozen goose"};
     string objects17[10] = {};
     string objects18[10] = {};
     string objects19[10] = {};
@@ -659,7 +659,7 @@ public:
             case 1:
                 for (int i = 0; i < 9; i++) {
                     if (objects1[i].empty() && i != 5) {
-                        objects1[i] = drop;
+                        objects1[i] = drop; //strcasecmp(objects18[i].c_str(), drop.c_str()) == 0
                         break;
                     }
                 }
@@ -814,7 +814,6 @@ public:
                     if (objects18[i].empty() && i != 5) {
                         objects18[i] = drop;
                         break;
-                        break;
                     }
                 }
                 break;
@@ -830,7 +829,7 @@ public:
         switch (position) {
             case 0:
                 for (int i = 0; i < 9; i++) {
-                    if (objects0[i] == item && i != 9) {
+                    if (strcasecmp(objects0[i].c_str(), item.c_str()) == 0) {
                         objects0[i].clear();
                         found = true;
                     }
@@ -847,7 +846,7 @@ public:
 
             case 1:
                 for (int i = 0; i < 9; i++) {
-                    if (objects1[i] == item && i != 9) {
+                    if (strcasecmp(objects1[i].c_str(), item.c_str()) == 0) {
                         objects1[i].clear();
                         found = true;
                     }
@@ -863,7 +862,7 @@ public:
 
             case 2:
                 for (int i = 0; i < 9; i++) {
-                    if (objects2[i] == item && i != 9) {
+                    if (strcasecmp(objects2[i].c_str(), item.c_str()) == 0) {
                         objects2[i].clear();
                         found = true;
                     }
@@ -879,7 +878,7 @@ public:
 
             case 3:
                 for (int i = 0; i < 9; i++) {
-                    if (objects3[i] == item && i != 9) {
+                    if (strcasecmp(objects3[i].c_str(), item.c_str()) == 0) {   //objects3[i] == item && i != 9
                         objects3[i].clear();
                         found = true;
                     }
@@ -895,7 +894,7 @@ public:
 
             case 4:
                 for (int i = 0; i < 9; i++) {
-                    if (objects4[i] == item && i != 9) {
+                    if (strcasecmp(objects4[i].c_str(), item.c_str()) == 0) {
                         objects4[i].clear();
                         found = true;
                     }
@@ -911,7 +910,7 @@ public:
 
             case 5:
                 for (int i = 0; i < 9; i++) {
-                    if (objects5[i].empty() && i != 5) {
+                    if (strcasecmp(objects5[i].c_str(), item.c_str()) == 0) {
                         objects5[i].clear();
                         found = true;
                     }
@@ -927,7 +926,7 @@ public:
 
             case 6:
                 for (int i = 0; i < 9; i++) {
-                    if (objects6[i] == item && i != 9) {
+                    if (strcasecmp(objects6[i].c_str(), item.c_str()) == 0) {
                         objects6[i].clear();
                         found = true;
                     }
@@ -943,7 +942,7 @@ public:
 
             case 7:
                 for (int i = 0; i < 9; i++) {
-                    if (objects7[i] == item && i != 9) {
+                    if (strcasecmp(objects7[i].c_str(), item.c_str()) == 0) {
                         objects7[i].clear();
                         found = true;
                     }
@@ -959,7 +958,7 @@ public:
 
             case 8:
                 for (int i = 0; i < 9; i++) {
-                    if (objects8[i] == item && i != 9) {
+                    if (strcasecmp(objects8[i].c_str(), item.c_str()) == 0) {
                         objects8[i].clear();
                         found = true;
                     }
@@ -975,7 +974,7 @@ public:
 
             case 9:
                 for (int i = 0; i < 9; i++) {
-                    if (objects9[i] == item && i != 9) {
+                    if (strcasecmp(objects9[i].c_str(), item.c_str()) == 0) {
                         objects9[i].clear();
                         found = true;
                     }
@@ -991,7 +990,7 @@ public:
 
             case 10:
                 for (int i = 0; i < 9; i++) {
-                    if (objects10[i] == item && i != 9) {
+                    if (strcasecmp(objects10[i].c_str(), item.c_str()) == 0) {
                         objects10[i].clear();
                         found = true;
                     }
@@ -1007,7 +1006,7 @@ public:
 
             case 11:
                 for (int i = 0; i < 9; i++) {
-                    if (objects11[i] == item && i != 9) {
+                    if (strcasecmp(objects11[i].c_str(), item.c_str()) == 0) {
                         objects11[i].clear();
                         found = true;
                     }
@@ -1023,7 +1022,7 @@ public:
 
             case 12:
                 for (int i = 0; i < 9; i++) {
-                    if (objects12[i] == item && i != 9) {
+                    if (strcasecmp(objects12[i].c_str(), item.c_str()) == 0) {
                         objects12[i].clear();
                         found = true;
                     }
@@ -1039,7 +1038,7 @@ public:
 
             case 13:
                 for (int i = 0; i < 9; i++) {
-                    if (objects13[i] == item && i != 9) {
+                    if (strcasecmp(objects13[i].c_str(), item.c_str()) == 0) {
                         objects13[i].clear();
                         found = true;
                     }
@@ -1055,7 +1054,7 @@ public:
 
             case 14:
                 for (int i = 0; i < 9; i++) {
-                    if (objects14[i] == item && i != 9) {
+                    if (strcasecmp(objects14[i].c_str(), item.c_str()) == 0) {
                         objects14[i].clear();
                         found = true;
                     }
@@ -1071,7 +1070,7 @@ public:
 
             case 15:
                 for (int i = 0; i < 9; i++) {
-                    if (objects15[i] == item && i != 9) {
+                    if (strcasecmp(objects15[i].c_str(), item.c_str()) == 0) {
                         objects15[i].clear();
                         found = true;
                     }
@@ -1087,7 +1086,7 @@ public:
 
             case 16:
                 for (int i = 0; i < 9; i++) {
-                    if (objects16[i] == item && i != 9) {
+                    if (strcasecmp(objects16[i].c_str(), item.c_str()) == 0) {
                         objects16[i].clear();
                         found = true;
                     }
@@ -1103,7 +1102,7 @@ public:
 
             case 17:
                 for (int i = 0; i < 9; i++) {
-                    if (objects17[i] == item && i != 9) {
+                    if (strcasecmp(objects17[i].c_str(), item.c_str()) == 0) {
                         objects17[i].clear();
                         found = true;
                     }
@@ -1119,24 +1118,8 @@ public:
 
             case 18:
                 for (int i = 0; i < 9; i++) {
-                    if (objects18[i] == item && i != 9) {
+                    if (strcasecmp(objects18[i].c_str(), item.c_str()) == 0) {
                         objects18[i].clear();
-                        found = true;
-                    }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
-                }
-                break;
-
-            case 19:
-                for (int i = 0; i < 9; i++) {
-                    if (objects19[i] == item && i != 9) {
-                        objects19[i].clear();
                         found = true;
                     }
                     if (found == true){
