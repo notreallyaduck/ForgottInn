@@ -166,6 +166,7 @@ int main() {
             player1.changeHealth(Battle1.getTakenDamage()); //changes health based on damage taken during battle
 
         }
+        userInput.clear();
     }
 
     if (Battle1.isGameOver()) { //Ends process with no output because ForgotBattle will output the end message

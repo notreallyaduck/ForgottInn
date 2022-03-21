@@ -373,17 +373,17 @@ public:
                     newPosition = 9;
                 } else if (chosenAction == "4") {
                     if (is108Locked) {
-                        cout << "\nThis room requires a pin\nEnter Pin: ";
-                        int room108Pin;
+                        cout << "\nThis room requires a passcode\nEnter Passcode: ";
+                        string room108Pin;
                         cin >> room108Pin;
-                        if (room108Pin == 2865) {
+                        if (room108Pin == "2865") {
                             newPosition = 10;
                         } else {
                             cout << "\nWrong pin, go away";
                             newPosition = 6;
                         }
+                        break;
                     }
-                    newPosition = 10;
                 } else {
                     cout << "\nenter a valid option";
                     failedInputs++;
@@ -479,16 +479,17 @@ public:
                     newPosition = 11;
                 } else if (chosenAction == "2") {
                     if (is218Locked) {
-                        cout << "\nThis elevator requires a pin\nEnter Pin: ";
-                        int supplyPin;
+                        cout << "\nThis elevator requires a passcode\nEnter Passcode: ";
+                        string supplyPin;
                         cin >> supplyPin;
-                        if (supplyPin == 2286) {
+                        if (supplyPin == "2286") {
                             newPosition = 18;
                         } else {
                             cout << "\nWrong pin, go away";
                             newPosition = 14;
                         }
                     }
+                    break;
                 } else {
                     cout << "\nenter a valid option";
                     failedInputs++;
