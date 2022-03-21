@@ -17,10 +17,14 @@ public:
     int failedInputs = 0;
     int newBattle = 0;
     string currentScene;
-    bool is103LightOn = false;
     bool killedPlayer = false;
+
+    //scene variables (for variable scene descriptions)
+    bool is103LightOn = false;
     bool is108Locked = true;
     bool is218Locked = true;
+
+    //storing objects in scenes
     string objects0[10] = {};
     string objects1[10] = {};
     string objects2[10] = {};
@@ -51,7 +55,7 @@ public:
     // getters
 
     //scene descriptors
-    void getLook(int scene) {
+    void getLook(int scene) { //prints scene description depending on the player's current position
         switch (scene) {
             case 0:
                 cout << "\n\nField";
@@ -173,7 +177,7 @@ public:
     }
 
     //scene actions
-    int getActions(int scene) {
+    int getActions(int scene) { //prints scene actions depending on the player's current position
         cout << "\nAvailable Actions:";
         switch (scene) {
             case 0:
@@ -268,7 +272,7 @@ public:
         }
     }
 
-    int setChosenAction(int scene, string chosenAction) {
+    int setChosenAction(int scene, string chosenAction) { //prints information, initiates battle or moves player depending on the player's chosen action
         switch (scene) {
             case 0:
                 cout << "\n[1] Enter Hotel\n> ";
@@ -559,9 +563,9 @@ public:
     }
 
 
-    int getMap(int currentScene) {
+    int getMap(int currentScene) { //Prints onscreen map depending on the players current position
         switch (currentScene) {
-            case 0: case 1: case 2: case 3: case 4: case 5:
+            case 0: case 1: case 2: case 3: case 4: case 5: //scenes 0-5 are located on the ground floor, so ground floor map is printed
                 cout << "\nMap of Ground Floor\n";
                 cout << "\n                   (Elevator)"
                         "\n                       |"
@@ -569,7 +573,7 @@ public:
                         "\n            |"
                         "\n         (Field)\n";
                 break;
-                case 6: case 7: case 8: case 9: case 10:
+                case 6: case 7: case 8: case 9: case 10: //Scenes 6-10 are located on level two, so level 1 map is printed
                 cout << "\nMap of Level One\n"
                         "\n                                         |—— (Room 108 REQUIRES PASSCODE)^"
                         "\n                                         |—— (Room 106)"
@@ -577,7 +581,7 @@ public:
                         "\n                     |"
                         "\n                (Elevator)\n";
                 break;
-                case 11: case 12: case 13: case 14:
+                case 11: case 12: case 13: case 14: //Scenes 11-14 are located on level two, so level 2 map is printed
                 cout << "\nMap of Level Two\n"
                         "\n                |—— (Room 218 ELEVATOR REQUIRES PASSCODE)^"
                         "\n                |—— (Room 208)"
@@ -585,7 +589,7 @@ public:
                         "\n       |"
                         "\n  (Elevator)\n";
                 break;
-                case 15: case 16: case 17: case 18:
+                case 15: case 16: case 17: case 18: //Scenes 15-18 are located on level 3, so level 3 map is printed
                 cout << "\nMap of Level Three\n"
                         "\n                |—— (Room 315)"
                         "\n                |—— (Room 312)"
@@ -596,7 +600,7 @@ public:
         }
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > getObjects(int currentScene, int i) {
+    basic_string<char, char_traits<char>, allocator<char> > getObjects(int currentScene, int i) { //returns object at specified index in player's current scene
         switch (currentScene) {
             case 0:
                 return objects0[i];
@@ -641,7 +645,7 @@ public:
         }
     }
 
-    int setDroppedObject(string drop, int currentScene){
+    int setDroppedObject(string drop, int currentScene){ //places object in player's current scene
         switch (currentScene) {
             case 0:
                 for (int i = 0; i < 9; i++) {
@@ -820,7 +824,7 @@ public:
         }
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > takenItem(string item, int position){
+    basic_string<char, char_traits<char>, allocator<char> > takenItem(string item, int position){ //repmoves object at player's current scene to be put in player's inventory
         switch (position) {
             case 0:
                 for (int i = 0; i < 9; i++) {
@@ -1006,7 +1010,7 @@ public:
         }
     }
 
-    void resetNewBattle() {
+    void resetNewBattle() { //resets newBattle variable
         newBattle = 0;
     }
 

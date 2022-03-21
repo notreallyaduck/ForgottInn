@@ -12,12 +12,14 @@ using namespace std;
 
 class ForgotPlayer {
 public:
+
+    //player attributes
     string name;
     int health;
     bool isAlive;
     int position;
-    int currentWeapon = 0;
-    int secondaryWeapon = 0;
+
+    //player inventory
     string inventory[5] = {
             "",
             "",
@@ -26,55 +28,47 @@ public:
             ""
     };
 
-    ForgotPlayer(int Health, bool Life) {
+    ForgotPlayer(int Health, bool Life) { //code to run when a player object is createdd
         health = Health;
         isAlive = Life;
     }
 
-    void changeHealth(int damage) {
+    void changeHealth(int damage) { //changes player's health
         health = health - damage;
     }
 
 
-    void setWeapon(int Weapon) {
-        currentWeapon = Weapon;
-    }
-
-    void setName(string enteredName) {
+    void setName(string enteredName) { //sets name of player
         name = enteredName;
     }
 
-    void setLife(bool dead){
+    void setLife(bool dead){ //sets player health to 0 if bool dead is true
         if (dead){
             health = 0;
         }
     }
 
-    void setSecond(int Weapon) {
-        secondaryWeapon = Weapon;
-    }
-
-    void setPosition(int Position) {
+    void setPosition(int Position) { //moves players position on the map
         position = Position;
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > getName() {
+    basic_string<char, char_traits<char>, allocator<char> > getName() { //returns the players name as a string
         return name;
     }
 
-    int getHealth() {
+    int getHealth() { //returns the players current health
         return health;
     }
 
-    int getLife() {
+    int getLife() { //returns players life status
         return isAlive;
     }
 
-    int getPosition() {
+    int getPosition() { //returns players current position
         return position;
     }
 
-    int addToInventory(string item) {
+    int addToInventory(string item) { //adds and item to the players inventory
         for (int i = 0; i < 5; i++) {
             if (inventory[i].empty() && i != 5) {
                 inventory[i] = item;
@@ -83,11 +77,11 @@ public:
         }
     }
 
-    int clearInventorySlot(int indexToRemove) {
+    int clearInventorySlot(int indexToRemove) { //removes an item from the player's inventory
         inventory[indexToRemove].clear();
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > getInventory(int i) {
+    basic_string<char, char_traits<char>, allocator<char> > getInventory(int i) { //returns the specified index of the player's inventory list
         return inventory[i];
     }
 };
