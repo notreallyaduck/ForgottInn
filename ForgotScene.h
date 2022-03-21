@@ -585,7 +585,7 @@ public:
                 cout << "\nMap of Level Two\n"
                         "\n                |-- (Room 218 ELEVATOR REQUIRES PASSCODE)^"
                         "\n                |-- (Room 208)"
-                        "\n(Level 1 Hallway) - (Room 204)"
+                        "\n(Level 2 Hallway) - (Room 204)"
                         "\n       |"
                         "\n  (Elevator)\n";
                 break;
@@ -593,7 +593,7 @@ public:
                 cout << "\nMap of Level Three\n"
                         "\n                |-- (Room 315)"
                         "\n                |-- (Room 312)"
-                        "\n(Level 1 Hallway) - (Room 304) >"
+                        "\n(Level 3 Hallway) - (Room 304) >"
                         "\n       |"
                         "\n   (Elevator)\n";
                 break;
