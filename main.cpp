@@ -19,9 +19,8 @@ int verboseOutput(string userInput, int newPosition, int failedInputs) { //text 
 
 int main() {
 
-    system("mode 650");
     cout << "\nForgottInn v1.1.0";
-    system("date");
+
     string userInput; //To hold any user inputs
     // string userInput;
     bool verbose = false; //Whether verbose mode is enabled or not

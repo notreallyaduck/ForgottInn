@@ -575,25 +575,25 @@ public:
                 break;
                 case 6: case 7: case 8: case 9: case 10: //Scenes 6-10 are located on level two, so level 1 map is printed
                 cout << "\nMap of Level One\n"
-                        "\n                                         |—— (Room 108 REQUIRES PASSCODE)^"
-                        "\n                                         |—— (Room 106)"
-                        "\n(Kitchen)  — (Level 1 Hallway) — (Room 103)"
+                        "\n                            |-- (Room 108 REQUIRES PASSCODE)^"
+                        "\n                            |-- (Room 106)"
+                        "\n(Kitchen) - (Level 1 Hallway) - (Room 103)"
                         "\n                     |"
                         "\n                (Elevator)\n";
                 break;
                 case 11: case 12: case 13: case 14: //Scenes 11-14 are located on level two, so level 2 map is printed
                 cout << "\nMap of Level Two\n"
-                        "\n                |—— (Room 218 ELEVATOR REQUIRES PASSCODE)^"
-                        "\n                |—— (Room 208)"
-                        "\n(Level 1 Hallway) — (Room 204)"
+                        "\n                |-- (Room 218 ELEVATOR REQUIRES PASSCODE)^"
+                        "\n                |-- (Room 208)"
+                        "\n(Level 1 Hallway) - (Room 204)"
                         "\n       |"
                         "\n  (Elevator)\n";
                 break;
                 case 15: case 16: case 17: case 18: //Scenes 15-18 are located on level 3, so level 3 map is printed
                 cout << "\nMap of Level Three\n"
-                        "\n                |—— (Room 315)"
-                        "\n                |—— (Room 312)"
-                        "\n(Level 1 Hallway) — (Room 304) >"
+                        "\n                |-- (Room 315)"
+                        "\n                |-- (Room 312)"
+                        "\n(Level 1 Hallway) - (Room 304) >"
                         "\n       |"
                         "\n   (Elevator)\n";
                 break;
