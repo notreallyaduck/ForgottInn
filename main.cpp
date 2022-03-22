@@ -2,8 +2,6 @@
 
 #include <string>
 
-#include <strings.h>
-
 #include "ForgotPlayer.h"
 
 #include "ForgotScene.h"
@@ -12,7 +10,8 @@
 
 using namespace std;
 
-int verboseOutput(string userInput, int newPosition, int failedInputs) { //text to display if verbose mode is enabled
+void
+verboseOutput(const string & userInput, int newPosition, int failedInputs) { //text to display if verbose mode is enabled
     cout << "\n\nVERBOSE:";
     cout << "\nuserInput: " << userInput; //display accepted userInput
     cout << "\nNEW POSITION: " << newPosition; //display newPosition from scenes
@@ -28,9 +27,8 @@ int main() {
     bool verbose = false; //Whether verbose mode is enabled or not
     int jumpInput = 0; //where to jump to
 
-
     //main menu
-    menu:; //to return to main menu
+    menu: ; //to return to main menu
     cout << "\n\n\n[Main Menu]" //print main menu
             "\nWelcome to the ForgottInn"
             "\n\n[1] How to play"
@@ -76,7 +74,8 @@ int main() {
          "What's your name?\n";
     getline(std::cin >> std::ws, userInput);
 
-    if (userInput == "verbose" || userInput == "Verbose") { //Enable verbose mode if user types "verbose" into name field
+    if (userInput == "verbose" ||
+        userInput == "Verbose") { //Enable verbose mode if user types "verbose" into name field
         verbose = true;
         player1.setName("(Verbose Mode)");
         player1.setPosition(0); //sets player's new position to scene 0 (Field)
@@ -101,74 +100,115 @@ int main() {
 
         for (int i = 0; i < 5; i++) { //Gets all items in a scene
             if (i <= 4) {
-            cout << " " << playerScene1.getObjects(player1.getPosition(), i);
+                cout << " " << playerScene1.getObjects(player1.getPosition(), i);
             }
         }
 
         cout << "\nMap, Drop, Take, Inventory and Exit are universal commands\n"; //help message to display at all times
 
-
-        playerScene1.getActions(player1.getPosition()); //gets available actions for player's current position from ForgotScene.h
+        playerScene1.getActions(
+                player1.getPosition()); //gets available actions for player's current position from ForgotScene.h
         cin >> userInput; //Save's player input for selected action
 
-
-        if (userInput == "jump" || userInput == "Jump" && verbose) { //Jump to any room (for testing purposes)
+        if (userInput == "jump" && verbose ||
+            userInput == "Jump" && verbose) { //Jump to any room (for testing purposes)
             cout << "\nWhere would you like to jump?\n";
             cin >> jumpInput;
             if (jumpInput > 18) {
                 cout << "\nenter a scene 18 or below";
             } else {
+                cout << "i tried to jump";
                 player1.setPosition(jumpInput);
             }
 
-        } else if (userInput == "exit" || userInput == "quit" || userInput == "Exit" || userInput == "Quit") { //End the process by exiting the loop
+        } else if (userInput == "give" && verbose ||
+                   userInput == "Give" && verbose) { //Give any item to player (for testing purposes)
+            string newItem;
+            cout << "\nWhat would you like to add to inventory?\n";
+            getline(std::cin >> std::ws, newItem);
+            player1.addToInventory(newItem);
+            cout << "\nAdded " << newItem;
+
+        } else if (userInput == "remove" && verbose ||
+                   userInput == "Remove" && verbose) { //Remove any item from player (for testing purposes)
+            string itemToRemove;
+            cout << "\nWhat would you like to remove from inventory?\n";
+            getline(std::cin >> std::ws, itemToRemove);
+            cout << "\n\nInventory:";
+            for (int i = 0; i < 5; i++) {
+                if (i <= 4) {
+                    cout << "\n[" << i + 1 << "] " <<
+                         player1.inventory[i]; //Gets every item in inventory and displays it with a number next to it like this [1]
+                }
+                for (int w = 0; w < 5; w++) {
+                    if (player1.getInventory(w) ==
+                        itemToRemove) { //Looks for specified item in player's inventory and removes it
+                        player1.clearInventorySlot(w);
+                        playerScene1.setDroppedObject(itemToRemove,
+                                                      player1.getPosition()); //Sends dropped item to current scene
+                    }
+
+                }
+            }
+            cout << "\n\n" << itemToRemove << " has been removed\n";
+        } else if (userInput == "exit" || userInput == "quit" || userInput == "Exit" ||
+                   userInput == "Quit") { //End the process by exiting the loop
             goto exit;
 
-        } else if (userInput == "inventory" || userInput == "Inventory" || userInput == "inv") { //Display the player's inventory
+        } else if (userInput == "inventory" || userInput == "Inventory" ||
+                   userInput == "inv") { //Display the player's inventory,
             cout << "\nType drop to remove an item from your inventory";
             cout << "\n\nInventory:";
             for (int i = 0; i < 5; i++) {
                 if (i <= 4) {
-                    cout << "\n[" << i + 1 << "] " << player1.inventory[i]; //Gets every item in inventory and displays it with a number next to it like this [1]
-                }
-            }
-        } else if (userInput == "drop" || userInput == "Drop"){ //Command to drop and item from inventory and into scene
-            cout << "\n\nNote: Drop is case sensitive\nInventory:";
-            for (int i = 0; i < 5; i++) {
-                if (i <= 4) {
-                    cout << "\n[" << i + 1 << "] " << player1.inventory[i];
+                    cout << "\n[" << i + 1 << "] " <<
+                         player1.inventory[i]; //Gets every item in inventory and displays it with a number next to it like this [1]
                 }
             }
 
-            cout<<"\nEnter an item to remove\n> ";
+        } else if (userInput == "drop" ||
+                   userInput == "Drop") { //Command to drop and item from inventory and into scene
+            cout << "\n\nNote: Drop is case sensitive\n";
+
+            cout << "\nEnter an item to remove\n> ";
             string itemToRemove; //item to remove from player inventory
             getline(std::cin >> std::ws, itemToRemove);
             for (int i = 0; i < 5; i++) {
-                if (player1.getInventory(i) == itemToRemove) { //Looks for specified item in player's inventory and removes it
+                if (player1.getInventory(i) ==
+                    itemToRemove) { //Looks for specified item in player's inventory and removes it
                     player1.clearInventorySlot(i);
                     cout << "\n" << itemToRemove << " has been removed";
-                    playerScene1.setDroppedObject(itemToRemove, player1.getPosition()); //Sends dropped item to current scene
+                    playerScene1.setDroppedObject(itemToRemove,
+                                                  player1.getPosition()); //Sends dropped item to current scene
                 }
             }
 
-        } else if(userInput == "take" || userInput == "Take" || userInput == "Pick"){ //Command to pick up an item from scene and place it in the player's inventory
+        } else if (userInput == "take" || userInput == "Take" ||
+                   userInput ==
+                   "Pick") { //Command to pick up an item from scene and place it in the player's inventory
             cout << "\nWhat item would you like to take?\n> ";
             getline(std::cin >> std::ws, userInput); //Player specifies item to take;
-            player1.addToInventory(playerScene1.takenItem(userInput, player1.getPosition())); //Asks ForgotScene.h if item exists at the current location and puts it in the players inventory
-        } else if (userInput == "Map" || userInput == "map"){ //Command to display an onscreen map
-            playerScene1.getMap(player1.getPosition()); //Current position is sent to getMap and map is printed in the console (cout)
+            player1.addToInventory(playerScene1.takenItem(userInput,
+                                                          player1.getPosition())); //Asks ForgotScene.h if item exists at the current location and puts it in the players inventory
+        } else if (userInput == "Map" || userInput == "map") { //Command to display an onscreen map
+            playerScene1.getMap(
+                    player1.getPosition()); //Current position is sent to getMap and map is printed in the console (cout)
         } else {
-            playerScene1.setChosenAction(player1.getPosition(), userInput); //Sets the chosen action as userInput if userInput is not a universal command
+            playerScene1.setChosenAction(player1.getPosition(),
+                                         userInput); //Sets the chosen action as userInput if userInput is not a universal command
             player1.setPosition(playerScene1.newPosition); //Sets new position as demanded by ForgotScene.h
-            Battle1.getBattle(playerScene1.getNewBattle(), player1.getHealth()); //Gets new battle and starts battle sequence if required, if not, this does not output anything
+            Battle1.getBattle(playerScene1.getNewBattle(),
+                              player1.getHealth()); //Gets new battle and starts battle sequence if required, if not, this does not output anything
             player1.addToInventory(Battle1.getTakenItem()); //Item is added to inventory if battled enemy drops loot
             playerScene1.resetNewBattle(); //resets new battle variable so player isnt forced into another battle immediately
             Battle1.resetTakenItem(); //resets Taken item variable so player does not get an infinite amount of the loot
-            player1.setLife(playerScene1.getKilledPlayer()); //changes the health of player to 0 if an action in a scene results in death
+            player1.setLife(
+                    playerScene1.getKilledPlayer()); //changes the health of player to 0 if an action in a scene results in death
             player1.changeHealth(Battle1.getTakenDamage()); //changes health based on damage taken during battle
 
         }
         userInput.clear();
+
     }
 
     if (Battle1.isGameOver()) { //Ends process with no output because ForgotBattle will output the end message
@@ -182,8 +222,9 @@ int main() {
         } else {
             cout << "\nReason: death"; //death message for health <= 0
         }
-        cin >> endofgame;
+        cin >>
+            endofgame;
     }
-    exit:;
+    exit: ;
 
 }
