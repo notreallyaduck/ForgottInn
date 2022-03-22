@@ -47,7 +47,6 @@ public:
     string objects19[10] = {};
 
 
-
     ForgotScene(int Scene) {
         currentScene = Scene;
     }
@@ -272,7 +271,8 @@ public:
         }
     }
 
-    int setChosenAction(int scene, string chosenAction) { //prints information, initiates battle or moves player depending on the player's chosen action
+    int setChosenAction(int scene,
+                        string chosenAction) { //prints information, initiates battle or moves player depending on the player's chosen action
         switch (scene) {
             case 0:
                 cout << "\n[1] Enter Hotel\n> ";
@@ -566,7 +566,12 @@ public:
 
     int getMap(int currentScene) { //Prints onscreen map depending on the players current position
         switch (currentScene) {
-            case 0: case 1: case 2: case 3: case 4: case 5: //scenes 0-5 are located on the ground floor, so ground floor map is printed
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5: //scenes 0-5 are located on the ground floor, so ground floor map is printed
                 cout << "\nMap of Ground Floor\n";
                 cout << "\n                   (Elevator)"
                         "\n                       |"
@@ -574,7 +579,11 @@ public:
                         "\n            |"
                         "\n         (Field)\n";
                 break;
-                case 6: case 7: case 8: case 9: case 10: //Scenes 6-10 are located on level two, so level 1 map is printed
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10: //Scenes 6-10 are located on level two, so level 1 map is printed
                 cout << "\nMap of Level One\n"
                         "\n                            |-- (Room 108 REQUIRES PASSCODE)^"
                         "\n                            |-- (Room 106)"
@@ -582,7 +591,10 @@ public:
                         "\n                     |"
                         "\n                (Elevator)\n";
                 break;
-                case 11: case 12: case 13: case 14: //Scenes 11-14 are located on level two, so level 2 map is printed
+            case 11:
+            case 12:
+            case 13:
+            case 14: //Scenes 11-14 are located on level two, so level 2 map is printed
                 cout << "\nMap of Level Two\n"
                         "\n                |-- (Room 218 ELEVATOR REQUIRES PASSCODE)^"
                         "\n                |-- (Room 208)"
@@ -590,7 +602,10 @@ public:
                         "\n       |"
                         "\n  (Elevator)\n";
                 break;
-                case 15: case 16: case 17: case 18: //Scenes 15-18 are located on level 3, so level 3 map is printed
+            case 15:
+            case 16:
+            case 17:
+            case 18: //Scenes 15-18 are located on level 3, so level 3 map is printed
                 cout << "\nMap of Level Three\n"
                         "\n                |-- (Room 315)"
                         "\n                |-- (Room 312)"
@@ -601,7 +616,8 @@ public:
         }
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > getObjects(int currentScene, int i) { //returns object at specified index in player's current scene
+    basic_string<char, char_traits<char>, allocator<char> >
+    getObjects(int currentScene, int i) { //returns object at specified index in player's current scene
         switch (currentScene) {
             case 0:
                 return objects0[i];
@@ -646,7 +662,7 @@ public:
         }
     }
 
-    int setDroppedObject(string drop, int currentScene){ //places object in player's current scene
+    int setDroppedObject(string drop, int currentScene) { //places object in player's current scene
         switch (currentScene) {
             case 0:
                 for (int i = 0; i < 9; i++) {
@@ -824,7 +840,8 @@ public:
         }
     }
 
-    basic_string<char, char_traits<char>, allocator<char> > takenItem(string item, int position){ //removes object at player's current scene to be put in player's inventory
+    basic_string<char, char_traits<char>, allocator<char> >
+    takenItem(string item, int position) { //removes object at player's current scene to be put in player's inventory
         bool found = false;
 
         switch (position) {
@@ -834,16 +851,13 @@ public:
                         objects0[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 1:
                 for (int i = 0; i < 9; i++) {
@@ -851,15 +865,13 @@ public:
                         objects1[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 2:
                 for (int i = 0; i < 9; i++) {
@@ -867,15 +879,14 @@ public:
                         objects2[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
+
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 3:
                 for (int i = 0; i < 9; i++) {
@@ -883,15 +894,13 @@ public:
                         objects3[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 4:
                 for (int i = 0; i < 9; i++) {
@@ -899,15 +908,13 @@ public:
                         objects4[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 5:
                 for (int i = 0; i < 9; i++) {
@@ -915,15 +922,13 @@ public:
                         objects5[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 6:
                 for (int i = 0; i < 9; i++) {
@@ -931,15 +936,13 @@ public:
                         objects6[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 7:
                 for (int i = 0; i < 9; i++) {
@@ -947,15 +950,13 @@ public:
                         objects7[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 8:
                 for (int i = 0; i < 9; i++) {
@@ -963,15 +964,13 @@ public:
                         objects8[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 9:
                 for (int i = 0; i < 9; i++) {
@@ -979,15 +978,13 @@ public:
                         objects9[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 10:
                 for (int i = 0; i < 9; i++) {
@@ -995,15 +992,13 @@ public:
                         objects10[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 11:
                 for (int i = 0; i < 9; i++) {
@@ -1011,15 +1006,13 @@ public:
                         objects11[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 12:
                 for (int i = 0; i < 9; i++) {
@@ -1027,15 +1020,13 @@ public:
                         objects12[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 13:
                 for (int i = 0; i < 9; i++) {
@@ -1043,15 +1034,13 @@ public:
                         objects13[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 14:
                 for (int i = 0; i < 9; i++) {
@@ -1059,15 +1048,13 @@ public:
                         objects14[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 15:
                 for (int i = 0; i < 9; i++) {
@@ -1075,15 +1062,13 @@ public:
                         objects15[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 16:
                 for (int i = 0; i < 9; i++) {
@@ -1091,15 +1076,13 @@ public:
                         objects16[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 17:
                 for (int i = 0; i < 9; i++) {
@@ -1107,15 +1090,13 @@ public:
                         objects17[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
 
             case 18:
                 for (int i = 0; i < 9; i++) {
@@ -1123,15 +1104,14 @@ public:
                         objects18[i].clear();
                         found = true;
                     }
-                    if (found == true){
-                        found = false;
-                        return item;
-                    } else {
-                        cout << "\a\nItem not found";
-                        return "not found";
-                    }
                 }
-                break;
+                if (found) {
+                    return item;
+                } else {
+                    cout << "\a\nItem not found";
+                    return "not found";
+                }
+
             default:
                 cout << "Error: failed to take object";
         }
