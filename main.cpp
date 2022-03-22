@@ -21,7 +21,7 @@ void verboseOutput(const string & userInput, int newPosition, int failedInputs) 
 
 int main() {
 
-    cout << "\nForgottInn v1.3.0";
+    cout << "\nForgottInn v1.3.1";
 
     string userInput; //To hold any user inputs
     // string userInput;
@@ -95,7 +95,6 @@ int main() {
             verboseOutput(userInput, playerScene1.getNewPosition(), playerScene1.getFailedInputs());
         }
 
-        cout << "\nHealth: " << player1.getHealth(); //prints player's health
         playerScene1.getLook(player1.getPosition()); //Displays scene description from ForgotScene.h
         cout << "\nItems in this room:";
 
@@ -105,10 +104,11 @@ int main() {
             }
         }
 
+        cout << "\nYour Health: " << player1.getHealth(); //Display's health
         cout << "\nMap, Drop, Take, Inventory and Exit are universal commands\n"; //help message to display at all times
 
-        playerScene1.getActions(
-                player1.getPosition()); //gets available actions for player's current position from ForgotScene.h
+        playerScene1.getActions(player1.getPosition()); //gets available actions for player's current position from ForgotScene.
+
         cin >> userInput; //Save's player input for selected action
 
         if (userInput == "jump" && verbose ||
@@ -202,12 +202,12 @@ int main() {
                               player1.getHealth()); //Gets new battle and starts battle sequence if required, if not, this does not output anything
             player1.addToInventory(Battle1.getTakenItem()); //Item is added to inventory if battled enemy drops loot
             playerScene1.resetNewBattle(); //resets new battle variable so player isnt forced into another battle immediately
-            Battle1.resetTakenItem(); //resets Taken item variable so player does not get an infinite amount of the loot
-            player1.setLife(
-                    playerScene1.getKilledPlayer()); //changes the health of player to 0 if an action in a scene results in death
-            player1.changeHealth(Battle1.getTakenDamage()); //changes health based on damage taken during battle
 
         }
+        Battle1.resetTakenItem(); //resets Taken item variable so player does not get an infinite amount of the loot
+        player1.setLife(playerScene1.getKilledPlayer()); //changes the health of player to 0 if an action in a scene results in death
+        player1.setHealth(Battle1.getNewHealth()); //changes health based on damage taken during battle
+        Battle1.resetTakenDamage(); //Resets taken damage variable in ForgotBattle.h
         userInput.clear();
 
     }

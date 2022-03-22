@@ -50,6 +50,7 @@ public:
                     enemyHealth = 10;
                     enemyDamage = 4;
                     playerHealth = currentHp;
+                    takenDamage = 0;
 
                     cout
                             <<
@@ -97,7 +98,6 @@ public:
                     }
                     if (enemyHealth < 1) {
                         completedBattles[0] = true; //change status of this battle to completed if enemy is dead
-                        takenDamage = 0;
                         battleId = 0;
                         cout
                                 << "\nYou take the baton and keep it for later use. You notice a number scratched into a wall, 2865."; //defeated enemy message
@@ -113,6 +113,7 @@ public:
                     enemyHealth = 10;
                     enemyDamage = 2;
                     playerHealth = currentHp;
+                    takenDamage = 0;
 
                     cout
                             <<
@@ -157,7 +158,6 @@ public:
                     if (enemyHealth < 1) {
                         completedBattles[1] = true; //change completion status for this battle to true
                         battleId = 0;
-                        takenDamage = 0;
                         cout
                                 << "\nYou look at the deformed face of the Janitor. You look at his id and see what it says. \nHe looks a lot more normal, the expiration date on his card says 2024, about 10 years ago. \nThere's also another number on there, 2286. \nRemember it, might come in handy.";
                         takenItem = "ID Card";
@@ -174,6 +174,7 @@ public:
                     enemyHealth = 20;
                     enemyDamage = 6;
                     playerHealth = currentHp;
+                    takenDamage = 0;
 
                     cout
                             <<
@@ -205,7 +206,7 @@ public:
                             newDamage = 8000000;
                         } else {
                             cout << "Because of your slow thinking, Goose hits you on the head very very hard.";
-                            newDamage = takenDamage + 400;
+                            newDamage = 400;
                         }
                         playerHealth = playerHealth - newDamage; //new player health to display
                         takenDamage = takenDamage + newDamage; //total damage taken by player
@@ -216,7 +217,6 @@ public:
                     if (enemyHealth < 1) {
                         completedBattles[2] = true; //change completion status for this battle to true
                         battleId = 0;
-                        takenDamage = 0;
                         cout
                                 << "\nYou look at the Goose. Lying on the ground. You look around the room for a way to escape this place, you find a staircase to the roof of the building. You get a very large bag that the Goose was likely delivered in and use it to parachute down back to the front door. You run away from this place with a brand new outlook on life and at least 32 years of nightmare fuel. Congratulation, you've left the ForgottInn. \n\nGame Over";
                         takenItem = "Frozen Goose Wings";
@@ -236,8 +236,12 @@ public:
         return completedBattles[battleId];
     }
 
-    int getTakenDamage() { //get the damage taken by the player
-        return takenDamage;
+    int getNewHealth() { //get the damage taken by the player
+        return playerHealth;
+    }
+
+    void resetTakenDamage(){
+        takenDamage = 0;
     }
 
     basic_string<char, char_traits<char>, allocator<char> > getTakenItem() { //specify what loot has been collected by the player

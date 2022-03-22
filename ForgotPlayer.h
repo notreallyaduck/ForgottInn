@@ -37,6 +37,11 @@ public:
         health = health - damage;
     }
 
+    void setHealth(int newHealth){
+        if (newHealth != 0){
+            health = newHealth;
+        }
+    }
 
     void setName(string enteredName) { //sets name of player
         name = enteredName;
