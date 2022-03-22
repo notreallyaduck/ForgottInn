@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include <strings.h>
+
 #include "ForgotPlayer.h"
 
 #include "ForgotScene.h"
@@ -10,8 +12,7 @@
 
 using namespace std;
 
-void
-verboseOutput(const string & userInput, int newPosition, int failedInputs) { //text to display if verbose mode is enabled
+void verboseOutput(const string & userInput, int newPosition, int failedInputs) { //text to display if verbose mode is enabled
     cout << "\n\nVERBOSE:";
     cout << "\nuserInput: " << userInput; //display accepted userInput
     cout << "\nNEW POSITION: " << newPosition; //display newPosition from scenes
@@ -20,7 +21,7 @@ verboseOutput(const string & userInput, int newPosition, int failedInputs) { //t
 
 int main() {
 
-    cout << "\nForgottInn v1.2.4";
+    cout << "\nForgottInn v1.3.0";
 
     string userInput; //To hold any user inputs
     // string userInput;
