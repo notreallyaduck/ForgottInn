@@ -135,7 +135,7 @@ public:
                                     "\nYou swing your fist at the Janitor, he does not stumble, but does take some damage"
                                     "\nHe swings his mop at you and chucks a bucket on your head. Ouch, you take the bucket off and chuck it back at him. Your face hurts.";
                             enemyHealth = enemyHealth - 2;
-                            newDamage = 5;
+                            newDamage = 7;
                         } else if (chosenBattleOption == "2") {
                             cout << "\nYou hit the Janitor with your baton. It looks like that hurt. Good job.";
                             enemyHealth = enemyHealth - 5;
