@@ -196,7 +196,7 @@ public:
                                     "\nYou punch the goose's feathery body, you can tell that made him mad."
                                     "\a\nHe honks at you and kicks your bony torso so hard that you go flying back into the wall.";
                             enemyHealth = enemyHealth - 2;
-                            newDamage = 5;
+                            newDamage = 7;
                         } else if (chosenBattleOption == "2") {
                             cout << "\nYou hit the Goose with your baton.";
                             enemyHealth = enemyHealth - 2;
@@ -242,6 +242,7 @@ public:
 
     void resetTakenDamage(){
         takenDamage = 0;
+        newHealth = 0;
     }
 
     basic_string<char, char_traits<char>, allocator<char> > getTakenItem() { //specify what loot has been collected by the player
